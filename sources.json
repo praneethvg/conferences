@@ -1,0 +1,181 @@
+{
+  "discovery": {
+    "name": "confs.tech",
+    "rawBaseUrl": "https://raw.githubusercontent.com/tech-conferences/conference-data/main/",
+    "topics": ["data", "devops", "sre", "networking", "general", "opensource", "python", "cpp", "performance"],
+    "requiredTopics": ["data", "devops", "sre"]
+  },
+  "official": [
+    {
+      "name": "NVIDIA GTC",
+      "url": "https://www.nvidia.com/gtc/",
+      "topics": ["AI", "AI infrastructure"],
+      "names": ["NVIDIA GTC", "GTC"],
+      "textAdapter": "nvidia-gtc"
+    },
+    {
+      "name": "AI Engineer",
+      "url": "https://ai.engineer/",
+      "topics": ["AI"],
+      "names": ["AI Engineer", "AIE"],
+      "textAdapter": "ai-engineer-worldsfair"
+    },
+    {
+      "name": "AI Engineer Code Summit",
+      "url": "https://ai.engineer/code",
+      "topics": ["AI"],
+      "names": ["AI Engineer Code", "AIE Code"],
+      "textAdapter": "ai-engineer-code"
+    },
+    {
+      "name": "NeurIPS",
+      "url": "https://neurips.cc/",
+      "topics": ["AI"],
+      "names": ["NeurIPS", "Neural Information Processing Systems"],
+      "textAdapter": "neurips-atlanta"
+    },
+    {
+      "name": "ICML",
+      "url": "https://icml.cc/",
+      "topics": ["AI"],
+      "names": ["ICML", "International Conference on Machine Learning"]
+    },
+    {
+      "name": "ICLR",
+      "url": "https://iclr.cc/",
+      "topics": ["AI"],
+      "names": ["ICLR", "International Conference on Learning Representations"]
+    },
+    {
+      "name": "CVPR",
+      "url": "https://cvpr.thecvf.com/",
+      "topics": ["AI"],
+      "names": ["CVPR", "Computer Vision and Pattern Recognition"],
+      "textAdapter": "cvpr"
+    },
+    {
+      "name": "Open Data Science Conference",
+      "url": "https://odsc.ai/",
+      "topics": ["AI", "Data infrastructure"],
+      "names": ["ODSC", "Open Data Science"],
+      "textAdapter": "odsc"
+    },
+    {
+      "name": "AI Con USA",
+      "url": "https://aiconusa.techwell.com/",
+      "topics": ["AI"],
+      "names": ["AI Con USA"]
+    },
+    {
+      "name": "PyTorch Conference North America",
+      "url": "https://events.linuxfoundation.org/pytorch-conference-north-america/",
+      "topics": ["AI", "AI infrastructure"],
+      "names": ["PyTorch Conference"]
+    },
+    {
+      "name": "Ray Summit",
+      "url": "https://www.anyscale.com/ray-summit",
+      "topics": ["AI", "AI infrastructure"],
+      "names": ["Ray Summit"]
+    },
+    {
+      "name": "KubeCon + CloudNativeCon North America",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/",
+      "topics": ["Cloud / Kubernetes", "AI infrastructure"],
+      "names": ["KubeCon CloudNativeCon North America"]
+    },
+    {
+      "name": "AWS re:Invent",
+      "url": "https://aws.amazon.com/events/reinvent/",
+      "topics": ["Cloud / Kubernetes", "AI"],
+      "names": ["AWS re:Invent", "re:Invent"],
+      "textAdapter": "aws-reinvent"
+    },
+    {
+      "name": "Google Cloud Next",
+      "url": "https://cloud.withgoogle.com/next",
+      "topics": ["Cloud / Kubernetes", "AI"],
+      "names": ["Google Cloud Next", "Cloud Next"],
+      "textAdapter": "google-cloud-next"
+    },
+    {
+      "name": "Microsoft Ignite",
+      "url": "https://ignite.microsoft.com/",
+      "topics": ["Cloud / Kubernetes", "AI"],
+      "names": ["Microsoft Ignite"]
+    },
+    {
+      "name": "USENIX systems conferences",
+      "url": "https://www.usenix.org/conferences",
+      "topics": ["DevOps / SRE", "Cloud / Kubernetes", "Data infrastructure"],
+      "names": ["SREcon", "FAST", "NSDI", "OSDI", "USENIX ATC"],
+      "textAdapter": "usenix"
+    },
+    {
+      "name": "DevOpsDays",
+      "url": "https://devopsdays.org/events/",
+      "topics": ["DevOps / SRE"],
+      "names": ["DevOpsDays", "DevOps Days"]
+    },
+    {
+      "name": "PlatformCon",
+      "url": "https://platformcon.com/",
+      "topics": ["DevOps / SRE"],
+      "names": ["PlatformCon"]
+    },
+    {
+      "name": "Data + AI Summit",
+      "url": "https://www.databricks.com/dataaisummit",
+      "topics": ["AI", "Data infrastructure"],
+      "names": ["Data AI Summit", "Data and AI Summit"]
+    },
+    {
+      "name": "Snowflake Summit",
+      "url": "https://www.snowflake.com/en/summit/",
+      "topics": ["Data infrastructure", "AI"],
+      "names": ["Snowflake Summit"]
+    },
+    {
+      "name": "Current",
+      "url": "https://current.confluent.io/",
+      "topics": ["Data infrastructure"],
+      "names": ["Current", "Kafka Summit"]
+    },
+    {
+      "name": "Supercomputing",
+      "url": "https://supercomputing.org/",
+      "topics": ["AI infrastructure"],
+      "names": ["Supercomputing", "SC26", "SC27"]
+    },
+    {
+      "name": "Hot Chips",
+      "url": "https://hotchips.org/",
+      "topics": ["AI infrastructure"],
+      "names": ["Hot Chips"]
+    },
+    {
+      "name": "OCP Global Summit",
+      "url": "https://www.opencompute.org/events/ocp-summit/2026-ocp-global-summit/",
+      "topics": ["AI infrastructure"],
+      "names": ["OCP Global Summit", "Open Compute Project"]
+    },
+    {
+      "name": "Data Center World",
+      "url": "https://datacenterworld.com/",
+      "topics": ["AI infrastructure"],
+      "names": ["Data Center World"]
+    },
+    {
+      "name": "HashiConf",
+      "url": "https://www.hashicorp.com/conferences/hashiconf",
+      "topics": ["Cloud / Kubernetes", "DevOps / SRE"],
+      "names": ["HashiConf"]
+    },
+    {
+      "name": "Open Source Summit North America",
+      "url": "https://events.linuxfoundation.org/open-source-summit-north-america/",
+      "topics": ["Cloud / Kubernetes", "DevOps / SRE"],
+      "names": ["Open Source Summit North America"]
+    }
+  ]
+}

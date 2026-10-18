@@ -1,0 +1,14 @@
+{
+  "name": "us-ai-infrastructure-conferences",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "refresh": "node scripts/refresh.mjs",
+    "test": "node --test",
+    "check": "node --check scripts/refresh.mjs && node --check scripts/tracker.mjs"
+  }
+}
