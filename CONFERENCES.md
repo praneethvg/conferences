@@ -1,8 +1,8 @@
 # US AI and infrastructure conferences
 
-Last refreshed: **2026-10-18T03:08:50.324Z**. Window: **2026-10-18 <= event start < 2027-10-18 (UTC)**; ongoing events are also included.
+Last refreshed: **2026-10-18T03:10:04.709Z**. Window: **2026-10-18 <= event start < 2027-10-18 (UTC)**; ongoing events are also included.
 
-**24 events** | **16 with current official date evidence** | **8 feed-only** | **0 retained from unavailable sources** | **25 source checks needing attention**
+**24 events** | **12 with current official date evidence** | **8 feed-only** | **4 retained from unavailable sources** | **30 source checks needing attention**
 
 AI and infrastructure receive equal priority: neither has a quota or ranking advantage. Events can belong to multiple topics.
 
@@ -30,20 +30,20 @@ Feed-only dates are community-reported, **not officially confirmed**. An officia
 | 2026-12-02 - 2026-12-03 | [ODSC AI NYC 2026](<https://odsc.ai/>) | New York, NY | AI, Data infrastructure | Official page evidence; [source 1](<https://odsc.ai/>) |
 | 2026-12-09 - 2026-12-13 | [NeurIPS Atlanta satellite 2026](<https://neurips.cc/>) | Atlanta, GA | AI | Official page evidence; [source 1](<https://neurips.cc/>) |
 | 2027-02-03 - 2027-02-04 | [Daytona Compute](<https://compute.daytona.io/>) | San Francisco, CA | Cloud / Kubernetes, Data infrastructure | Feed only; [source 1](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json>) |
-| 2027-02-23 - 2027-02-25 | [FAST '27: 25th USENIX Conference on File and Storage Technologies](<https://www.usenix.org/conference/fast27>) | Renton, WA | Data infrastructure | Official page evidence; [source 1](<https://www.usenix.org/conferences>) |
+| 2027-02-23 - 2027-02-25 | [FAST '27: 25th USENIX Conference on File and Storage Technologies](<https://www.usenix.org/conference/fast27>) | Renton, WA | Data infrastructure | **Stale: source unavailable**; last verified 2026-10-18T03:08:50.324Z; [source 1](<https://www.usenix.org/conferences>) |
 | 2027-03-15 - 2027-03-18 | [NVIDIA GTC 2027](<https://www.nvidia.com/gtc/>) | San Jose, CA | AI, AI infrastructure | Official page evidence; [source 1](<https://www.nvidia.com/gtc/>) |
 | 2027-04-01 - 2027-04-04 | [SCaLE](<https://www.socallinuxexpo.org/scale/24x>) | Pasadena, CA | Cloud / Kubernetes | Feed only; [source 1](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/networking.json>) |
-| 2027-04-12 - 2027-04-14 | [SREcon27 Americas](<https://www.usenix.org/conference/srecon27americas>) | Seattle, WA | DevOps / SRE | Official page evidence; [source 1](<https://www.usenix.org/conferences>) |
+| 2027-04-12 - 2027-04-14 | [SREcon27 Americas](<https://www.usenix.org/conference/srecon27americas>) | Seattle, WA | DevOps / SRE | **Stale: source unavailable**; last verified 2026-10-18T03:08:50.324Z; [source 1](<https://www.usenix.org/conferences>) |
 | 2027-04-13 - 2027-04-15 | [Google Cloud Next 2027](<https://cloud.withgoogle.com/next>) | Las Vegas, NV | Cloud / Kubernetes, AI | Official page evidence; [source 1](<https://cloud.withgoogle.com/next>) |
 | 2027-05-10 - 2027-05-12 | [ODSC East 2027](<https://odsc.ai/>) | Boston, MA | AI, Data infrastructure | Official page evidence; [source 1](<https://odsc.ai/>) |
-| 2027-05-11 - 2027-05-13 | [NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation](<https://www.usenix.org/conference/nsdi27>) | Providence, RI | Cloud / Kubernetes | Official page evidence; [source 1](<https://www.usenix.org/conferences>) |
+| 2027-05-11 - 2027-05-13 | [NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation](<https://www.usenix.org/conference/nsdi27>) | Providence, RI | Cloud / Kubernetes | **Stale: source unavailable**; last verified 2026-10-18T03:08:50.324Z; [source 1](<https://www.usenix.org/conferences>) |
 | 2027-05-24 - 2027-05-27 | [Data Center World](<https://datacenterworld.com/>) | Nashville, TN | AI infrastructure, Data infrastructure | Official structured data; [source 1](<https://datacenterworld.com/>) |
 | 2027-05-24 - 2027-05-28 | [DevOpsCon San Diego](<https://devopscon.io/san-diego>) | San Diego, CA | DevOps / SRE | Feed only; [source 1](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/devops.json>), [source 2](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/sre.json>) |
 | 2027-06-06 - 2027-06-11 | [AI Con USA](<https://aiconusa.techwell.com/>) | Seattle, WA | AI, DevOps / SRE, Data infrastructure | Feed only; [source 1](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json>), [source 2](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/sre.json>) |
 | 2027-06-16 - 2027-06-17 | [Data Centre North America](<https://datacentrecongress.com/northamerica>) | San Jose, CA | AI infrastructure, Data infrastructure | Feed only; [source 1](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json>) |
 | 2027-06-20 - 2027-06-25 | [CVPR 2027](<https://cvpr.thecvf.com/>) | Seattle, WA | AI | Official page evidence; [source 1](<https://cvpr.thecvf.com/>) |
 | 2027-06-29 - 2027-07-01 | [AI Engineer World's Fair 2027](<https://ai.engineer/>) | San Francisco, CA | AI | Official page evidence; [source 1](<https://ai.engineer/>) |
-| 2027-07-07 - 2027-07-09 | [OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation](<https://www.usenix.org/conference/osdi27>) | Baltimore, MD | Cloud / Kubernetes | Official page evidence; [source 1](<https://www.usenix.org/conferences>) |
+| 2027-07-07 - 2027-07-09 | [OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation](<https://www.usenix.org/conference/osdi27>) | Baltimore, MD | Cloud / Kubernetes | **Stale: source unavailable**; last verified 2026-10-18T03:08:50.324Z; [source 1](<https://www.usenix.org/conferences>) |
 
 ## Official watchlist
 
@@ -66,7 +66,7 @@ These recurring conferences are checked separately from the discovery feed. This
 | [AWS re:Invent](<https://aws.amazon.com/events/reinvent/>) | Cloud / Kubernetes, AI | 1 upcoming US event(s) with official evidence |
 | [Google Cloud Next](<https://cloud.withgoogle.com/next>) | Cloud / Kubernetes, AI | 1 upcoming US event(s) with official evidence |
 | [Microsoft Ignite](<https://ignite.microsoft.com/>) | Cloud / Kubernetes, AI | No supported upcoming US date evidence; not confirmation that dates are unannounced |
-| [USENIX systems conferences](<https://www.usenix.org/conferences>) | DevOps / SRE, Cloud / Kubernetes, Data infrastructure | 4 upcoming US event(s) with official evidence |
+| [USENIX systems conferences](<https://www.usenix.org/conferences>) | DevOps / SRE, Cloud / Kubernetes, Data infrastructure | HTTP 403 for https://www.usenix.org/conferences |
 | [DevOpsDays](<https://devopsdays.org/events/>) | DevOps / SRE | No supported upcoming US date evidence; not confirmation that dates are unannounced |
 | [PlatformCon](<https://platformcon.com/>) | DevOps / SRE | No supported upcoming US date evidence; not confirmation that dates are unannounced |
 | [Data + AI Summit](<https://www.databricks.com/dataaisummit>) | AI, Data infrastructure | No supported upcoming US date evidence; not confirmation that dates are unannounced |
@@ -121,7 +121,7 @@ Discovery failures stop the refresh before replacing this file. Official-page fa
 | [AWS re:Invent](<https://aws.amazon.com/events/reinvent/>) | ok | 1 upcoming US event(s) with official evidence |
 | [Google Cloud Next](<https://cloud.withgoogle.com/next>) | ok | 1 upcoming US event(s) with official evidence |
 | [Microsoft Ignite](<https://ignite.microsoft.com/>) | limited | No supported upcoming US date evidence; not confirmation that dates are unannounced |
-| [USENIX systems conferences](<https://www.usenix.org/conferences>) | ok | 4 upcoming US event(s) with official evidence |
+| [USENIX systems conferences](<https://www.usenix.org/conferences>) | unavailable | HTTP 403 for https://www.usenix.org/conferences |
 | [DevOpsDays](<https://devopsdays.org/events/>) | limited | No supported upcoming US date evidence; not confirmation that dates are unannounced |
 | [PlatformCon](<https://platformcon.com/>) | limited | No supported upcoming US date evidence; not confirmation that dates are unannounced |
 | [Data + AI Summit](<https://www.databricks.com/dataaisummit>) | limited | No supported upcoming US date evidence; not confirmation that dates are unannounced |
@@ -142,6 +142,10 @@ Discovery failures stop the refresh before replacing this file. Official-page fa
 | [DevOpsCon San Diego](<https://devopscon.io/san-diego>) | warning | No unambiguous matching official Event data; dates remain feed-only; Invalid JSON-LD: Unexpected token '(', " (()=&gt;{var "... is not valid JSON |
 | [AI Con USA](<https://aiconusa.techwell.com/>) | unavailable | HTTP 403 for https://aiconusa.techwell.com/ |
 | [Data Centre North America](<https://datacentrecongress.com/northamerica>) | limited | No unambiguous matching official Event data; dates remain feed-only |
+| [FAST '27: 25th USENIX Conference on File and Storage Technologies](<https://www.usenix.org/conference/fast27>) | stale | Retained from unavailable official source; last verified 2026-10-18T03:08:50.324Z |
+| [SREcon27 Americas](<https://www.usenix.org/conference/srecon27americas>) | stale | Retained from unavailable official source; last verified 2026-10-18T03:08:50.324Z |
+| [NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation](<https://www.usenix.org/conference/nsdi27>) | stale | Retained from unavailable official source; last verified 2026-10-18T03:08:50.324Z |
+| [OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation](<https://www.usenix.org/conference/osdi27>) | stale | Retained from unavailable official source; last verified 2026-10-18T03:08:50.324Z |
 
 </details>
 
