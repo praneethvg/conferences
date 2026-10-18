@@ -15,7 +15,7 @@ For an immediate refresh:
 3. Select **Run workflow** on the default branch.
 4. After it succeeds, open [CONFERENCES.md](./CONFERENCES.md).
 
-The workflow tests the tracker, collects events, and commits only the generated Markdown. Its built-in `GITHUB_TOKEN` has write access in that job; no personal access token or search secret is needed. GitHub-hosted runner usage remains subject to your account's private-repository Actions allowance. Organization policies can restrict Actions or token write access.
+The workflow tests the tracker, collects events, and commits the generated Markdown and its factual event cache. Its built-in `GITHUB_TOKEN` has write access in that job; no personal access token or search secret is needed. GitHub-hosted runner usage remains subject to your account's private-repository Actions allowance. Organization policies can restrict Actions or token write access.
 
 Schedules run only from the default branch and may be delayed. If you later make the repository public, GitHub can disable scheduled workflows after 60 days of repository inactivity; check Actions if updates stop. Failed refreshes leave the previous successful list intact. **Always check the list's refresh timestamp** and workflow status rather than assuming the list is current.
 
@@ -28,7 +28,7 @@ npm test
 npm run refresh
 ```
 
-There is nothing to install. The command atomically replaces [CONFERENCES.md](./CONFERENCES.md) only after collection succeeds. It does not commit or push local changes.
+There is nothing to install. The command atomically replaces [CONFERENCES.md](./CONFERENCES.md) only after collection succeeds and saves [conference-cache.json](./conference-cache.json) for future source outages. It does not commit or push local changes.
 
 For a reproducible date window:
 
@@ -49,6 +49,8 @@ The window starts on the selected UTC calendar day and ends just before the same
 
 **Feed only** means community-reported dates, not official confirmation. Fetching a page successfully does not verify its dates. Unsupported, malformed, ambiguous, or blocked official pages remain visible in the health section. Feed-only conflicts are flagged rather than hidden.
 
+If an official source becomes unavailable (for example, HTTP 403 or a timeout), previously verified official-only entries from the cache stay visible with a **Stale: source unavailable** label and their original last-verification timestamp. They are not counted as freshly verified. Expired entries age out of the rolling window, fresh records replace cached editions, and explicit official cancellations are not retained. This matters because some organizers block GitHub-hosted runners even when their pages are accessible from a local machine. A source that successfully responds but no longer contains supported evidence is not treated as an outage.
+
 Discovery is **bounded, not exhaustive**. This is not a Google search or an AI-powered web crawl. Conferences missing from the selected feed and without supported metadata on a watched page can be missed. Many official sites publish dates only in JavaScript, images, or unstructured copy. An unsupported watchlist entry does not prove its dates are unannounced. We do not infer a US edition from a previous venue.
 
 Every published discovery file must load and validate successfully. The current year's `data`, `devops`, and `sre` files are required. Missing optional topic or future-year files (HTTP 404) are explicitly reported as coverage gaps; other HTTP failures, invalid JSON, or invalid required records fail the refresh without replacing the previous list. A completely empty result is also rejected as a safeguard. Official-site failures are nonfatal and explicitly reported; feed entries remain unverified instead of disappearing.
@@ -64,4 +66,4 @@ Every published discovery file must load and validate successfully. The current 
 
 Conference metadata is discovered from **confs.tech / tech-conferences/conference-data**, a community-maintained dataset under its [MIT license](https://github.com/tech-conferences/conference-data/blob/main/LICENSE.md). This project filters, normalizes, classifies, combines duplicates, and checks some records against official sources. The upstream permission notice is reproduced in [NOTICE](./NOTICE).
 
-Only factual event metadata and short diagnostics are persisted. Full official pages are not copied into the repository. Check organizer pages before registering or booking travel.
+Only factual event metadata and short diagnostics are persisted. The generated cache is not a secret and is committed alongside the Markdown; neither contains full copies of official pages. Check organizer pages before registering or booking travel.

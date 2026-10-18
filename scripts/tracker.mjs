@@ -357,13 +357,15 @@ function link(label, url) {
 export function renderMarkdown(snapshot) {
   const { window, generatedAt, events, checks, watchlist } = snapshot;
   const warnings = checks.filter((check) => check.status !== "ok");
-  const verified = events.filter((event) => event.evidence !== "Feed only").length;
+  const verified = events.filter((event) => event.evidence !== "Feed only" && !event.stale).length;
+  const feedOnly = events.filter((event) => event.evidence === "Feed only").length;
+  const stale = events.filter((event) => event.stale).length;
   const lines = [
     "# US AI and infrastructure conferences",
     "",
     `Last refreshed: **${generatedAt}**. Window: **${window.start} <= event start < ${window.end} (UTC)**; ongoing events are also included.`,
     "",
-    `**${events.length} events** | **${verified} with official date evidence** | **${events.length - verified} feed-only** | **${warnings.length} source checks needing attention**`,
+    `**${events.length} events** | **${verified} with current official date evidence** | **${feedOnly} feed-only** | **${stale} retained from unavailable sources** | **${warnings.length} source checks needing attention**`,
     "",
     "AI and infrastructure receive equal priority: neither has a quota or ranking advantage. Events can belong to multiple topics.",
     "",
@@ -373,7 +375,7 @@ export function renderMarkdown(snapshot) {
     "",
     "## Upcoming events",
     "",
-    "Feed-only dates are community-reported, **not officially confirmed**. An official link or successful page fetch alone is not date verification. All rows were checked during the refresh above; consult the organizer before booking travel.",
+    "Feed-only dates are community-reported, **not officially confirmed**. An official link or successful page fetch alone is not date verification. Retained entries from unavailable sources are explicitly marked stale with their last verification date. Consult the organizer before booking travel.",
     "",
     "| Dates | Conference / official site | US location | Topics | Date evidence |",
     "| --- | --- | --- | --- | --- |",
@@ -381,7 +383,8 @@ export function renderMarkdown(snapshot) {
       const dates = event.start === event.end ? event.start : `${event.start} - ${event.end}`;
       const sources = event.sources.map((url, index) => link(`source ${index + 1}`, url)).join(", ");
       const conflict = event.dateConflict ? `; **conflicting end dates: ${event.alternateEnds.map(cell).join(", ")}**` : "";
-      return `| ${dates}${event.start < window.start ? " (ongoing)" : ""} | ${link(event.name, event.url)} | ${cell(event.city)} | ${event.topics.join(", ")} | ${cell(event.evidence)}${conflict}; ${sources} |`;
+      const evidence = event.stale ? `**Stale: source unavailable**; last verified ${cell(event.lastVerifiedAt)}` : cell(event.evidence);
+      return `| ${dates}${event.start < window.start ? " (ongoing)" : ""} | ${link(event.name, event.url)} | ${cell(event.city)} | ${event.topics.join(", ")} | ${evidence}${conflict}; ${sources} |`;
     }),
     ...(events.length ? [] : ["", "**No matching events found.** This does not mean no US conferences exist. Review source coverage below."]),
     "",
@@ -395,7 +398,7 @@ export function renderMarkdown(snapshot) {
     "",
     "## Refresh health",
     "",
-    "Discovery failures stop the refresh before replacing this file. Official-page failures do not remove feed entries; they remain explicitly feed-only. Individual source checks appear below, including failures and unsupported page formats.",
+    "Discovery failures stop the refresh before replacing this file. Official-page failures do not remove feed entries; they remain explicitly feed-only. Previously verified official-only entries are retained as stale when a source is unavailable, not presented as freshly verified. Individual source checks appear below, including failures and unsupported page formats.",
     "",
     "<details>",
     "<summary>Source checks</summary>",

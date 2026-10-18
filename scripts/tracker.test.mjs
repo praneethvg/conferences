@@ -343,6 +343,48 @@ test("failed official pages keep feed entries unverified and expose source failu
   assert.match(snapshot.watchlist[0].detail, /timeout/);
 });
 
+test("unavailable official sources retain previously verified events as visibly stale", async () => {
+  const initial = fixtures();
+  const previous = await collect(config, { ...options, getText: initial.getText });
+  const outage = fixtures({ [config.official[0].url]: new Error("HTTP 403") });
+  const snapshot = await collect(config, {
+    ...options, generatedAt: "2026-10-24T12:00:00.000Z", getText: outage.getText, previousEvents: previous.events,
+  });
+  assert.equal(snapshot.events.length, 2);
+  const retained = snapshot.events.find((entry) => entry.name === "NVIDIA GTC 2027");
+  assert.equal(retained.stale, true);
+  assert.equal(retained.lastVerifiedAt, options.generatedAt);
+  const markdown = renderMarkdown(snapshot);
+  assert.match(markdown, /Stale: source unavailable/);
+  assert.match(markdown, /1 retained from unavailable sources/);
+  assert.match(markdown, /1 with current official date evidence/);
+});
+
+test("retained official events age out, and recovered sources clear stale status", async () => {
+  const initial = fixtures();
+  const previous = await collect(config, { ...options, getText: initial.getText });
+  const expired = { ...previous.events[1], start: "2026-10-01", end: "2026-10-02" };
+  const outage = fixtures({ [config.official[0].url]: new Error("HTTP 403") });
+  const snapshot = await collect(config, { ...options, getText: outage.getText, previousEvents: [expired] });
+  assert.equal(snapshot.events.some((entry) => entry.stale), false);
+  const recovered = await collect(config, {
+    ...options, generatedAt: "2026-10-24T12:00:00.000Z", getText: initial.getText,
+    previousEvents: previous.events.map((entry) => ({ ...entry, stale: true })),
+  });
+  assert.ok(recovered.events.every((entry) => !entry.stale && entry.lastVerifiedAt === "2026-10-24T12:00:00.000Z"));
+});
+
+test("fresh official cancellations do not resurrect cached events from another blocked source", async () => {
+  const initial = fixtures();
+  const previous = await collect(config, { ...options, getText: initial.getText });
+  const cached = { ...previous.events[0], sources: [...previous.events[0].sources, config.official[0].url] };
+  const fixture = fixtures({
+    [config.official[0].url]: new Error("HTTP 403"),
+    [event.url]: ld({ ...officialRecord, eventStatus: "https://schema.org/EventCancelled" }),
+  });
+  await assert.rejects(collect(config, { ...options, getText: fixture.getText, previousEvents: [cached] }), /No matching events/);
+});
+
 test("malformed official JSON-LD is reported without pretending dates were verified", async () => {
   const fixture = fixtures({ [event.url]: '<script type="application/ld+json">{broken</script>' });
   const snapshot = await collect(config, { ...options, getText: fixture.getText });
@@ -417,7 +459,7 @@ test("untrusted event metadata cannot inject Markdown columns, links, or HTML", 
   assert.equal(row.split("|").length, 7);
 });
 
-test("local refresh persists Markdown and preserves it on a later discovery failure", async () => {
+test("local refresh persists cache, retains outage entries, and preserves Markdown on critical failure", async () => {
   const directory = await mkdtemp(join(tmpdir(), "conference-tracker-test-"));
   const root = pathToFileURL(`${directory}/`);
   try {
@@ -426,13 +468,25 @@ test("local refresh persists Markdown and preserves it on a later discovery fail
     await refresh({ root, ...options, getText: fixture.getText });
     const original = await readFile(new URL("CONFERENCES.md", root), "utf8");
     assert.match(original, /NVIDIA GTC 2027/);
+    const cache = JSON.parse(await readFile(new URL("conference-cache.json", root), "utf8"));
+    assert.equal(cache.events.length, 2);
+    const outage = fixtures({ [config.official[0].url]: new Error("HTTP 403") });
+    await refresh({ root, ...options, generatedAt: "2026-10-24T12:00:00.000Z", getText: outage.getText });
+    const retained = await readFile(new URL("CONFERENCES.md", root), "utf8");
+    assert.match(retained, /Stale: source unavailable/);
+    const retainedCache = JSON.parse(await readFile(new URL("conference-cache.json", root), "utf8"));
+    assert.equal(retainedCache.events.find((entry) => entry.name === "NVIDIA GTC 2027").lastVerifiedAt, options.generatedAt);
     const broken = fixtures({ "https://feeds.example/conferences/2026/data.json": new Error("discovery down") });
     await assert.rejects(refresh({ root, ...options, getText: broken.getText }), /discovery down/);
-    assert.equal(await readFile(new URL("CONFERENCES.md", root), "utf8"), original);
+    assert.equal(await readFile(new URL("CONFERENCES.md", root), "utf8"), retained);
+    await writeFile(new URL("conference-cache.json", root), JSON.stringify({ version: 2, events: [] }));
+    await assert.rejects(refresh({ root, ...options, getText: fixture.getText }), /Invalid conference cache schema/);
+    assert.equal(await readFile(new URL("CONFERENCES.md", root), "utf8"), retained);
     assert.equal((await readdir(directory)).some((name) => name.endsWith(".tmp")), false);
   } finally {
     await rm(join(directory, "sources.json"), { force: true });
     await rm(join(directory, "CONFERENCES.md"), { force: true });
+    await rm(join(directory, "conference-cache.json"), { force: true });
     await rm(directory, { recursive: true });
   }
 });

@@ -1,0 +1,447 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-18T03:08:50.324Z",
+  "events": [
+    {
+      "name": "PyTorch Conference North America: The Deep Learning Conference",
+      "start": "2026-10-20",
+      "end": "2026-10-21",
+      "city": "San Jose, CA",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/pytorch-conference-north-america/",
+      "topics": [
+        "AI",
+        "AI infrastructure"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://events.linuxfoundation.org/pytorch-conference-north-america/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "SEV0",
+      "start": "2026-10-27",
+      "end": "2026-10-27",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://sev0.com/",
+      "topics": [
+        "DevOps / SRE",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/data.json",
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/sre.json"
+      ],
+      "dateConflict": false,
+      "alternateEnds": [],
+      "stale": false,
+      "lastVerifiedAt": null
+    },
+    {
+      "name": "AI DevCon NYC",
+      "start": "2026-11-02",
+      "end": "2026-11-04",
+      "city": "Brooklyn, NY",
+      "country": "US",
+      "url": "https://tessl.io/devcon",
+      "topics": [
+        "AI",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/data.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null
+    },
+    {
+      "name": "Open Source Analytics Conference",
+      "start": "2026-11-02",
+      "end": "2026-11-02",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://osacon.io/",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/data.json",
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/opensource.json"
+      ],
+      "dateConflict": false,
+      "alternateEnds": [],
+      "stale": false,
+      "lastVerifiedAt": null
+    },
+    {
+      "name": "KubeCon + CloudNativeCon North America",
+      "start": "2026-11-09",
+      "end": "2026-11-12",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2026",
+      "topics": [
+        "AI infrastructure",
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2026",
+        "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/",
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/devops.json"
+      ],
+      "dateConflict": false,
+      "alternateEnds": [],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "AI Engineer Code Summit 2026",
+      "start": "2026-11-10",
+      "end": "2026-11-12",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://ai.engineer/code",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://ai.engineer/code"
+      ],
+      "dateConflict": false,
+      "alternateEnds": [],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "AWS re:Invent 2026",
+      "start": "2026-11-30",
+      "end": "2026-12-04",
+      "city": "Las Vegas, NV",
+      "country": "US",
+      "url": "https://aws.amazon.com/events/reinvent/",
+      "topics": [
+        "Cloud / Kubernetes",
+        "AI"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://aws.amazon.com/events/reinvent/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "ODSC AI NYC 2026",
+      "start": "2026-12-02",
+      "end": "2026-12-03",
+      "city": "New York, NY",
+      "country": "US",
+      "url": "https://odsc.ai/",
+      "topics": [
+        "AI",
+        "Data infrastructure"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://odsc.ai/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "NeurIPS Atlanta satellite 2026",
+      "start": "2026-12-09",
+      "end": "2026-12-13",
+      "city": "Atlanta, GA",
+      "country": "US",
+      "url": "https://neurips.cc/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://neurips.cc/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "Daytona Compute",
+      "start": "2027-02-03",
+      "end": "2027-02-04",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://compute.daytona.io/",
+      "topics": [
+        "Cloud / Kubernetes",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null
+    },
+    {
+      "name": "FAST '27: 25th USENIX Conference on File and Storage Technologies",
+      "start": "2027-02-23",
+      "end": "2027-02-25",
+      "city": "Renton, WA",
+      "country": "US",
+      "url": "https://www.usenix.org/conference/fast27",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://www.usenix.org/conferences"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "NVIDIA GTC 2027",
+      "start": "2027-03-15",
+      "end": "2027-03-18",
+      "city": "San Jose, CA",
+      "country": "US",
+      "url": "https://www.nvidia.com/gtc/",
+      "topics": [
+        "AI",
+        "AI infrastructure"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://www.nvidia.com/gtc/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "SCaLE",
+      "start": "2027-04-01",
+      "end": "2027-04-04",
+      "city": "Pasadena, CA",
+      "country": "US",
+      "url": "https://www.socallinuxexpo.org/scale/24x",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/networking.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null
+    },
+    {
+      "name": "SREcon27 Americas",
+      "start": "2027-04-12",
+      "end": "2027-04-14",
+      "city": "Seattle, WA",
+      "country": "US",
+      "url": "https://www.usenix.org/conference/srecon27americas",
+      "topics": [
+        "DevOps / SRE"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://www.usenix.org/conferences"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "Google Cloud Next 2027",
+      "start": "2027-04-13",
+      "end": "2027-04-15",
+      "city": "Las Vegas, NV",
+      "country": "US",
+      "url": "https://cloud.withgoogle.com/next",
+      "topics": [
+        "Cloud / Kubernetes",
+        "AI"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://cloud.withgoogle.com/next"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "ODSC East 2027",
+      "start": "2027-05-10",
+      "end": "2027-05-12",
+      "city": "Boston, MA",
+      "country": "US",
+      "url": "https://odsc.ai/",
+      "topics": [
+        "AI",
+        "Data infrastructure"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://odsc.ai/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation",
+      "start": "2027-05-11",
+      "end": "2027-05-13",
+      "city": "Providence, RI",
+      "country": "US",
+      "url": "https://www.usenix.org/conference/nsdi27",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://www.usenix.org/conferences"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "Data Center World",
+      "start": "2027-05-24",
+      "end": "2027-05-27",
+      "city": "Nashville, TN",
+      "country": "US",
+      "url": "https://datacenterworld.com/",
+      "topics": [
+        "AI infrastructure",
+        "Data infrastructure"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://datacenterworld.com/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "DevOpsCon San Diego",
+      "start": "2027-05-24",
+      "end": "2027-05-28",
+      "city": "San Diego, CA",
+      "country": "US",
+      "url": "https://devopscon.io/san-diego",
+      "topics": [
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/devops.json",
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/sre.json"
+      ],
+      "dateConflict": false,
+      "alternateEnds": [],
+      "stale": false,
+      "lastVerifiedAt": null
+    },
+    {
+      "name": "AI Con USA",
+      "start": "2027-06-06",
+      "end": "2027-06-11",
+      "city": "Seattle, WA",
+      "country": "US",
+      "url": "https://aiconusa.techwell.com/",
+      "topics": [
+        "AI",
+        "DevOps / SRE",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json",
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/sre.json"
+      ],
+      "dateConflict": false,
+      "alternateEnds": [],
+      "stale": false,
+      "lastVerifiedAt": null
+    },
+    {
+      "name": "Data Centre North America",
+      "start": "2027-06-16",
+      "end": "2027-06-17",
+      "city": "San Jose, CA",
+      "country": "US",
+      "url": "https://datacentrecongress.com/northamerica",
+      "topics": [
+        "AI infrastructure",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null
+    },
+    {
+      "name": "CVPR 2027",
+      "start": "2027-06-20",
+      "end": "2027-06-25",
+      "city": "Seattle, WA",
+      "country": "US",
+      "url": "https://cvpr.thecvf.com/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://cvpr.thecvf.com/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "AI Engineer World's Fair 2027",
+      "start": "2027-06-29",
+      "end": "2027-07-01",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://ai.engineer/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://ai.engineer/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    },
+    {
+      "name": "OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation",
+      "start": "2027-07-07",
+      "end": "2027-07-09",
+      "city": "Baltimore, MD",
+      "country": "US",
+      "url": "https://www.usenix.org/conference/osdi27",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://www.usenix.org/conferences"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+    }
+  ]
+}

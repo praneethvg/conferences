@@ -3,12 +3,12 @@ import { randomUUID } from "node:crypto";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import {
   dateOnly, windowFor, inWindow, httpUrl, parseFeed, structuredEvents, parseOfficial,
-  textEvents, namesMatch, reconcileOfficial, deduplicate, mapLimit, fetchText, renderMarkdown,
+  textEvents, namesMatch, normalizedName, reconcileOfficial, deduplicate, mapLimit, fetchText, renderMarkdown, TOPICS,
 } from "./tracker.mjs";
 
 const ROOT = new URL("../", import.meta.url);
 
-export async function collect(config, { asOf = new Date().toISOString().slice(0, 10), generatedAt = new Date().toISOString(), getText = fetchText } = {}) {
+export async function collect(config, { asOf = new Date().toISOString().slice(0, 10), generatedAt = new Date().toISOString(), getText = fetchText, previousEvents = [] } = {}) {
   const window = windowFor(asOf);
   const checks = [];
   const cache = new Map();
@@ -88,16 +88,31 @@ export async function collect(config, { asOf = new Date().toISOString().slice(0,
       const detail = reconciled === null ? "Excluded: official data indicates cancellation, postponement, online-only, or a non-US venue"
         : reconciled.evidence === "Feed only" ? "No unambiguous matching official Event data; dates remain feed-only"
           : "Official event dates and US venue checked";
-      return { event: reconciled, check: { name: event.name, url: event.url, status: structured.warnings.length ? "warning" : reconciled?.evidence === "Feed only" ? "limited" : "ok", detail: [detail, ...structured.warnings].join("; ") } };
+      return { event: reconciled, excluded: reconciled === null ? event : null, check: { name: event.name, url: event.url, status: structured.warnings.length ? "warning" : reconciled?.evidence === "Feed only" ? "limited" : "ok", detail: [detail, ...structured.warnings].join("; ") } };
     } catch (error) {
       return { event, check: { name: event.name, url: event.url, status: "warning", detail: `Invalid official event data; dates remain feed-only: ${error.message}` } };
     }
   });
   checks.push(...verifiedFeed.map((result) => result.check));
-  const events = deduplicate([
+  const fresh = deduplicate([
     ...verifiedFeed.map((result) => result.event).filter(Boolean),
     ...watchResults.flatMap((result) => result.events),
-  ]).filter((event) => inWindow(event, window));
+  ]).map((event) => ({
+    ...event,
+    stale: false,
+    lastVerifiedAt: event.evidence === "Feed only" ? null : generatedAt,
+  }));
+  const edition = (event) => `${normalizedName(event.name)}|${event.start.slice(0, 4)}`;
+  const seen = new Set([...fresh, ...verifiedFeed.map((result) => result.excluded).filter(Boolean)].map(edition));
+  const unavailable = new Set(checks.filter((check) => check.status === "unavailable").map((check) => httpUrl(check.url)));
+  const retained = previousEvents.filter((event) => event.evidence !== "Feed only" && event.lastVerifiedAt
+    && !seen.has(edition(event)) && inWindow(event, window)
+    && event.sources.some((url) => unavailable.has(httpUrl(url))))
+    .map((event) => ({ ...event, stale: true }));
+  for (const event of retained) {
+    checks.push({ name: event.name, url: event.url, status: "stale", detail: `Retained from unavailable official source; last verified ${event.lastVerifiedAt}` });
+  }
+  const events = deduplicate([...fresh, ...retained]).filter((event) => inWindow(event, window));
   if (!events.length) throw new Error("No matching events found; refusing to replace the previous snapshot with an empty list");
   return {
     generatedAt,
@@ -110,17 +125,48 @@ export async function collect(config, { asOf = new Date().toISOString().slice(0,
 
 export async function refresh({ root = ROOT, ...options } = {}) {
   const config = JSON.parse(await readFile(new URL("sources.json", root), "utf8"));
-  const snapshot = await collect(config, options);
+  let previousEvents = [];
+  let cacheText;
+  try {
+    cacheText = await readFile(new URL("conference-cache.json", root), "utf8");
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+  if (cacheText !== undefined) {
+    const cache = JSON.parse(cacheText);
+    if (cache.version !== 1 || !Array.isArray(cache.events)) throw new Error("Invalid conference cache schema");
+    for (const event of cache.events) {
+      if (!event || typeof event.name !== "string" || typeof event.city !== "string" || event.country !== "US"
+        || !["Feed only", "Official structured data", "Official page evidence"].includes(event.evidence)
+        || !Array.isArray(event.topics) || !event.topics.length || !event.topics.every((topic) => TOPICS.includes(topic))
+        || !Array.isArray(event.sources) || !event.sources.length
+        || (event.lastVerifiedAt !== null && !Number.isFinite(Date.parse(event.lastVerifiedAt)))) {
+        throw new Error("Invalid conference cache event");
+      }
+      dateOnly(event.start);
+      dateOnly(event.end);
+      if (event.end < event.start) throw new Error("Invalid conference cache date range");
+      httpUrl(event.url);
+      event.sources.forEach(httpUrl);
+    }
+    previousEvents = cache.events;
+  }
+  const snapshot = await collect(config, { ...options, previousEvents });
   const markdown = renderMarkdown(snapshot);
   const destination = new URL("CONFERENCES.md", root);
+  const cacheDestination = new URL("conference-cache.json", root);
   const temporary = new URL(`CONFERENCES.md.${randomUUID()}.tmp`, root);
+  const cacheTemporary = new URL(`conference-cache.json.${randomUUID()}.tmp`, root);
   try {
     await writeFile(temporary, markdown, { flag: "wx" });
+    await writeFile(cacheTemporary, `${JSON.stringify({ version: 1, generatedAt: snapshot.generatedAt, events: snapshot.events }, null, 2)}\n`, { flag: "wx" });
+    await rename(cacheTemporary, cacheDestination);
     await rename(temporary, destination);
   } finally {
     await rm(temporary, { force: true });
+    await rm(cacheTemporary, { force: true });
   }
-  for (const check of snapshot.checks.filter((check) => ["warning", "unavailable"].includes(check.status))) {
+  for (const check of snapshot.checks.filter((check) => ["warning", "unavailable", "stale"].includes(check.status))) {
     console.warn(`${check.status}: ${check.name}: ${check.detail}`);
   }
   console.log(`Updated ${fileURLToPath(destination)}: ${snapshot.events.length} events, ${snapshot.window.start} to ${snapshot.window.end} (exclusive)`);
