@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-18T03:10:04.709Z",
+  "generatedAt": "2026-10-19T19:21:10.810Z",
   "events": [
     {
       "name": "PyTorch Conference North America: The Deep Learning Conference",
@@ -18,7 +18,7 @@
         "https://events.linuxfoundation.org/pytorch-conference-north-america/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "SEV0",
@@ -100,7 +100,7 @@
       "dateConflict": false,
       "alternateEnds": [],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "AI Engineer Code Summit 2026",
@@ -119,7 +119,7 @@
       "dateConflict": false,
       "alternateEnds": [],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "AWS re:Invent 2026",
@@ -137,7 +137,7 @@
         "https://aws.amazon.com/events/reinvent/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "ODSC AI NYC 2026",
@@ -155,7 +155,7 @@
         "https://odsc.ai/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "NeurIPS Atlanta satellite 2026",
@@ -172,7 +172,7 @@
         "https://neurips.cc/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "Daytona Compute",
@@ -225,7 +225,7 @@
         "https://www.nvidia.com/gtc/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "SCaLE",
@@ -277,7 +277,7 @@
         "https://cloud.withgoogle.com/next"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "ODSC East 2027",
@@ -295,7 +295,7 @@
         "https://odsc.ai/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation",
@@ -330,7 +330,7 @@
         "https://datacenterworld.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "DevOpsCon San Diego",
@@ -407,7 +407,7 @@
         "https://cvpr.thecvf.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "AI Engineer World's Fair 2027",
@@ -424,7 +424,7 @@
         "https://ai.engineer/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-18T03:10:04.709Z"
+      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
     },
     {
       "name": "OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation",

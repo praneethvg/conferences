@@ -1,6 +1,6 @@
 # US AI and infrastructure conferences
 
-Last refreshed: **2026-10-18T03:10:04.709Z**. Window: **2026-10-18 <= event start < 2027-10-18 (UTC)**; ongoing events are also included.
+Last refreshed: **2026-10-19T19:21:10.810Z**. Window: **2026-10-19 <= event start < 2027-10-19 (UTC)**; ongoing events are also included.
 
 **24 events** | **12 with current official date evidence** | **8 feed-only** | **4 retained from unavailable sources** | **30 source checks needing attention**
 
