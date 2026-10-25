@@ -478,8 +478,8 @@ export function renderMarkdown(snapshot) {
       const price = event.price ? link(event.price.label, event.price.url)
         : event.pricingUrl ? `Not found; ${link("check pricing", event.pricingUrl)}` : "Not found";
       const registration = event.registrationUrl ? link(event.registrationLabel ?? "Register", event.registrationUrl) : "Not found";
-      const staleTickets = event.stale && (event.price || event.registrationUrl) ? ` (stale; checked ${cell(event.ticketCheckedAt ?? "previous refresh")})` : "";
-      return `| ${dates}${event.start < window.start ? " (ongoing)" : ""} | ${link(event.name, event.url)} | ${location} | ${event.topics.join(", ")} | ${price}${staleTickets} | ${registration}${staleTickets} | ${evidence}${conflict}; ${sources} |`;
+      const staleTickets = event.stale || event.ticketsStale ? ` (stale; checked ${cell(event.ticketCheckedAt ?? "previous refresh")})` : "";
+      return `| ${dates}${event.start < window.start ? " (ongoing)" : ""} | ${link(event.name, event.url)} | ${location} | ${event.topics.join(", ")} | ${price}${event.price ? staleTickets : ""} | ${registration}${event.registrationUrl ? staleTickets : ""} | ${evidence}${conflict}; ${sources} |`;
     }),
     ...(events.length ? [] : ["", "**No matching events found.** This does not mean no US conferences exist. Review source coverage below."]),
     "",

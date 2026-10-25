@@ -131,7 +131,24 @@ export async function collect(config, { asOf = new Date().toISOString().slice(0,
   const ticketResults = await mapLimit(datedEvents, 4, async (event) => {
     if (event.stale) return { event };
     const result = await page(event.url);
-    if (result.error) return { event };
+    if (result.error) {
+      const cached = previousEvents.filter((previous) => normalizedName(previous.name) === normalizedName(event.name)
+        && previous.start.slice(0, 4) === event.start.slice(0, 4) && httpUrl(previous.url) === httpUrl(event.url)
+        && previous.ticketCheckedAt && (previous.price || previous.registrationUrl));
+      if (cached.length !== 1) return { event };
+      const previous = cached[0];
+      return {
+        event: {
+          ...event, price: previous.price, registrationUrl: previous.registrationUrl,
+          registrationLabel: previous.registrationLabel, pricingUrl: previous.pricingUrl,
+          ticketCheckedAt: previous.ticketCheckedAt, ticketsStale: true,
+        },
+        check: {
+          name: `${event.name} tickets`, url: event.url, status: "stale",
+          detail: `Official ticket page unavailable; retained details checked ${previous.ticketCheckedAt}`,
+        },
+      };
+    }
     try {
       let tickets = ticketDetails(event, result.html, event.url, window.start);
       const registrationPage = tickets.registrationUrl && new URL(tickets.registrationUrl).origin === new URL(event.url).origin
@@ -200,6 +217,7 @@ export async function refresh({ root = ROOT, ...options } = {}) {
       }
       if (event.registrationUrl) httpUrl(event.registrationUrl);
       if (event.pricingUrl) httpUrl(event.pricingUrl);
+      if (event.ticketCheckedAt && !Number.isFinite(Date.parse(event.ticketCheckedAt))) throw new Error("Invalid cached ticket check timestamp");
     }
     previousEvents = cache.events;
   }

@@ -509,6 +509,29 @@ test("application links found on pricing pages keep their application-only label
   assert.equal(snapshot.events[0].registrationLabel, "Apply to attend");
 });
 
+test("blocked official ticket pages retain cached ticket details without advancing their check timestamp", async () => {
+  const initial = fixtures({
+    [event.url]: ld({ ...officialRecord, offers: { price: 199, priceCurrency: "USD", url: "/register" } }),
+  });
+  const previous = await collect(config, { ...options, getText: initial.getText });
+  const blocked = fixtures({ [event.url]: new Error("HTTP 403") });
+  const snapshot = await collect(config, {
+    ...options, generatedAt: "2026-10-26T12:00:00Z", previousEvents: previous.events, getText: blocked.getText,
+  });
+  const retained = snapshot.events[0];
+  assert.equal(retained.evidence, "Feed only");
+  assert.equal(retained.ticketsStale, true);
+  assert.equal(retained.price.label, "USD 199 (listed offers; types vary)");
+  assert.equal(retained.registrationUrl, "https://events.example/register");
+  assert.equal(retained.ticketCheckedAt, options.generatedAt);
+  assert.match(renderMarkdown(snapshot), /stale; checked 2026-10-17T12:00:00\.000Z/);
+  const recovered = await collect(config, {
+    ...options, generatedAt: "2026-10-27T12:00:00Z", previousEvents: snapshot.events, getText: initial.getText,
+  });
+  assert.notEqual(recovered.events[0].ticketsStale, true);
+  assert.equal(recovered.events[0].ticketCheckedAt, "2026-10-27T12:00:00Z");
+});
+
 test("failed or malformed additional feeds fail explicitly rather than silently reducing coverage", async () => {
   for (const result of [new Error("developers feed down"), "{}", "[]", "{broken"]) {
     const fixture = fixtures({ [developersSource.url]: result });
