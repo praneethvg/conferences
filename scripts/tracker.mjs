@@ -65,6 +65,7 @@ export function httpUrl(value) {
 
 export function normalizedName(name) {
   return name.toLowerCase()
+    .replace(/\baie\s+code\s+summit(?:\s+sf)?\b/g, "ai engineer code summit")
     .replace(/\bnorth america\b|\bna\b/g, " northamerica ")
     .replace(/\b(?:19|20)\d{2}\b/g, "")
     .replace(/[^a-z0-9]/g, "");
@@ -98,7 +99,7 @@ export function parseFeed(records, source) {
       throw new Error(`${source.name}: invalid conference record`);
     }
     if (!isUS(record.country) || !record.city?.trim()) continue;
-    if (/cancel|postpon|virtual/i.test(record.status ?? "")) continue;
+    if (/cancel|postpon|delay|virtual/i.test(record.status ?? "")) continue;
     const topics = topicsFor(record.name, source.topic);
     if (!topics.length) continue;
     events.push(normalizeEvent({
@@ -108,6 +109,41 @@ export function parseFeed(records, source) {
       city: record.city.trim(),
       country: "US",
       url: record.url,
+      topics,
+      evidence: "Feed only",
+      sources: [source.url],
+    }));
+  }
+  return events;
+}
+
+export function parseDevelopersFeed(records, source) {
+  if (!Array.isArray(records) || !records.length) throw new Error(`${source.name}: expected a nonempty event array`);
+  const events = [];
+  for (const record of records) {
+    if (!record || typeof record.name !== "string" || !Array.isArray(record.date) || !record.date.length) {
+      throw new Error(`${source.name}: invalid developers.events record`);
+    }
+    if (!isUS(record.country) || typeof record.city !== "string" || !record.city.trim()
+      || /cancel|postpon|delay|virtual/i.test(record.status ?? "")) continue;
+    if (!record.date.every((value) => Number.isSafeInteger(value) && Number.isFinite(new Date(value).getTime()))) {
+      throw new Error(`${source.name}: ${record.name}: invalid date timestamps`);
+    }
+    if (record.tags !== undefined && (!Array.isArray(record.tags) || record.tags.some((tag) =>
+      !tag || typeof tag.key !== "string" || typeof tag.value !== "string"))) {
+      throw new Error(`${source.name}: ${record.name}: invalid tags`);
+    }
+    const tags = (record.tags ?? []).filter((tag) => ["tech", "topic"].includes(tag.key)).map((tag) => tag.value);
+    const topics = topicsFor([record.name, ...tags].join(" "));
+    if (!topics.length) continue;
+    const dates = record.date.map((value) => dateOnly(new Date(value).toISOString())).sort();
+    events.push(normalizeEvent({
+      name: record.name,
+      start: dates[0],
+      end: dates.at(-1),
+      city: record.city.trim(),
+      country: "US",
+      url: record.hyperlink,
       topics,
       evidence: "Feed only",
       sources: [source.url],
@@ -218,9 +254,35 @@ function usenixEvents(html, source) {
   return events;
 }
 
+function metaScaleEvents(html, source) {
+  const events = [];
+  const cards = [...html.matchAll(/<span\b[^>]*class=["']title-text["'][^>]*>([\s\S]*?)<\/span>/gi)];
+  for (let index = 0; index < cards.length; index++) {
+    const title = visibleText(cards[index][1]).replace(/\s*-\s*PAST EVENT$/i, "");
+    if (!/^(?:AI & DATA|SYSTEMS & RELIABILITY|NETWORKING|PRODUCT)$/i.test(title)) continue;
+    const body = html.slice(cards[index].index + cards[index][0].length, cards[index + 1]?.index ?? html.length);
+    const fields = [...body.matchAll(/<strong\b[^>]*>([\s\S]*?)<\/strong>/gi)].slice(0, 2).map((match) => visibleText(match[1]));
+    const range = fields[0]?.match(/^(?<month>[A-Za-z]+) (?<start>\d{1,2})(?:\s*-\s*(?:(?<endMonth>[A-Za-z]+) )?(?<end>\d{1,2}))?, (?<year>20\d{2})$/);
+    if (!range) throw new Error(`Meta @Scale ${title}: unsupported date markup`);
+    const venue = fields[1] ?? "";
+    if (/\bonline|virtual\b/i.test(venue)) continue;
+    const usVenue = venue.match(/(?:^|, )(?<city>Menlo Park|Bellevue|Santa Clara), (?<region>CA|California|WA|Washington)$/);
+    if (!usVenue) throw new Error(`Meta @Scale ${title}: unsupported US venue: ${venue}`);
+    const topics = topicsFor(`${title} ${visibleText(body)}`);
+    const href = [...body.matchAll(/href=["']([^"']+)["']/gi)].map((match) => new URL(decodeEntities(match[1]), source.url))
+      .find((url) => url.origin === new URL(source.url).origin && url.pathname.startsWith("/events/"));
+    const groups = { ...range.groups, end: range.groups.end ?? range.groups.start };
+    events.push(announcement(source, `Meta @Scale: ${title} ${groups.year}`, groups,
+      `${usVenue.groups.city}, ${/^(?:CA|California)$/.test(usVenue.groups.region) ? "CA" : "WA"}`,
+      topics, href?.href ?? source.url));
+  }
+  return events;
+}
+
 export function textEvents(html, source) {
   if (!source.textAdapter) return [];
   if (source.textAdapter === "usenix") return usenixEvents(html, source);
+  if (source.textAdapter === "meta-atscale") return metaScaleEvents(html, source);
   const text = visibleText(html);
   if (source.textAdapter === "odsc") {
     return [...text.matchAll(/\b(?<city>BOSTON|NEW YORK) (?<month>[A-Z]+) (?<start>\d{1,2})-(?<end>\d{1,2}), (?<year>20\d{2})\b/gi)]
@@ -284,26 +346,49 @@ export function reconcileOfficial(event, records, pageUrl) {
 }
 
 export function deduplicate(events) {
-  const merged = new Map();
+  const merged = [];
   const rank = { "Feed only": 0, "Official page evidence": 1, "Official structured data": 2 };
+  const canonicalUrl = (value) => {
+    const url = new URL(httpUrl(value));
+    return `${url.hostname.replace(/^www\./, "")}${url.pathname.replace(/\/$/, "")}${url.search}`;
+  };
+  const sameCity = (a, b) => {
+    const parts = (city) => city.toLowerCase().split(",").map((part) => part.replace(/[^a-z0-9]/g, ""));
+    const first = parts(a);
+    const second = parts(b);
+    return first[0] === second[0] && (!first[1] || !second[1] || first[1] === second[1]);
+  };
   for (const event of events) {
-    const key = `${normalizedName(event.name)}|${event.start}|${event.city.toLowerCase().replace(/[^a-z0-9]/g, "")}`;
-    const existing = merged.get(key);
-    if (!existing) {
-      merged.set(key, { ...event });
+    const name = normalizedName(event.name);
+    const matches = merged.map((existing, index) => {
+      if (existing.start !== event.start) return -1;
+      const otherName = normalizedName(existing.name);
+      const sameUrl = canonicalUrl(existing.url) === canonicalUrl(event.url);
+      if (name === otherName && (sameCity(existing.city, event.city) || sameUrl)) return index;
+      const related = Math.min(name.length, otherName.length) >= 8
+        && (normalizedName(event.name.split(":")[0]) === otherName || normalizedName(existing.name.split(":")[0]) === name);
+      return related && sameUrl && sameCity(existing.city, event.city) ? index : -1;
+    }).filter((index) => index !== -1);
+    if (matches.length !== 1) {
+      merged.push({ ...event });
       continue;
     }
+    const index = matches[0];
+    const existing = merged[index];
     const preferred = rank[event.evidence] > rank[existing.evidence] ? event : existing;
     const conflict = event.end !== existing.end && rank[event.evidence] === 0 && rank[existing.evidence] === 0;
-    merged.set(key, {
+    const locationConflict = !sameCity(existing.city, event.city) && preferred.evidence === "Feed only";
+    merged[index] = {
       ...preferred,
       topics: TOPICS.filter((topic) => existing.topics.includes(topic) || event.topics.includes(topic)),
       sources: [...new Set([...existing.sources, ...event.sources])].sort(),
       dateConflict: preferred.evidence === "Feed only" && Boolean(existing.dateConflict || event.dateConflict || conflict),
       alternateEnds: preferred.evidence === "Feed only" ? [...new Set([...(existing.alternateEnds ?? []), ...(event.alternateEnds ?? []), ...(conflict ? [existing.end, event.end] : [])])].sort() : [],
-    });
+      locationConflict: preferred.evidence === "Feed only" && Boolean(existing.locationConflict || event.locationConflict || locationConflict),
+      alternateCities: preferred.evidence === "Feed only" ? [...new Set([...(existing.alternateCities ?? []), ...(event.alternateCities ?? []), ...(locationConflict ? [existing.city, event.city] : [])])].sort() : [],
+    };
   }
-  return [...merged.values()].sort((a, b) => a.start.localeCompare(b.start) || a.name.localeCompare(b.name));
+  return merged.sort((a, b) => a.start.localeCompare(b.start) || a.name.localeCompare(b.name));
 }
 
 export async function mapLimit(items, limit, mapper) {
@@ -351,7 +436,8 @@ function cell(value) {
 }
 
 function link(label, url) {
-  return `[${cell(label)}](<${httpUrl(url).replace(/</g, "%3C").replace(/>/g, "%3E").replace(/\|/g, "%7C")}>)`;
+  httpUrl(url);
+  return `[${cell(label)}](<${new URL(url).href.replace(/</g, "%3C").replace(/>/g, "%3E").replace(/\|/g, "%7C")}>)`;
 }
 
 export function renderMarkdown(snapshot) {
@@ -367,6 +453,8 @@ export function renderMarkdown(snapshot) {
     "",
     `**${events.length} events** | **${verified} with current official date evidence** | **${feedOnly} feed-only** | **${stale} retained from unavailable sources** | **${warnings.length} source checks needing attention**`,
     "",
+    `Ticket coverage: **${events.filter((event) => event.price).length} prices found** | **${events.filter((event) => event.registrationUrl).length} registration/application links found** (including any explicitly stale entries below).`,
+    "",
     "AI and infrastructure receive equal priority: neither has a quota or ranking advantage. Events can belong to multiple topics.",
     "",
     "| Topic | Events |",
@@ -377,14 +465,21 @@ export function renderMarkdown(snapshot) {
     "",
     "Feed-only dates are community-reported, **not officially confirmed**. An official link or successful page fetch alone is not date verification. Retained entries from unavailable sources are explicitly marked stale with their last verification date. Consult the organizer before booking travel.",
     "",
-    "| Dates | Conference / official site | US location | Topics | Date evidence |",
-    "| --- | --- | --- | --- | --- |",
+    "Ticket prices are separately checked against official pages, not inferred from feed dates. Listed offers can span ticket types; eligibility, taxes and availability may vary. \"Not found\" does not mean free. Follow the price or registration link for current terms.",
+    "",
+    "| Dates | Conference / official site | US location | Topics | Price | Registration | Date evidence |",
+    "| --- | --- | --- | --- | --- | --- | --- |",
     ...events.map((event) => {
       const dates = event.start === event.end ? event.start : `${event.start} - ${event.end}`;
       const sources = event.sources.map((url, index) => link(`source ${index + 1}`, url)).join(", ");
       const conflict = event.dateConflict ? `; **conflicting end dates: ${event.alternateEnds.map(cell).join(", ")}**` : "";
       const evidence = event.stale ? `**Stale: source unavailable**; last verified ${cell(event.lastVerifiedAt)}` : cell(event.evidence);
-      return `| ${dates}${event.start < window.start ? " (ongoing)" : ""} | ${link(event.name, event.url)} | ${cell(event.city)} | ${event.topics.join(", ")} | ${evidence}${conflict}; ${sources} |`;
+      const location = event.locationConflict ? `**Location conflict:** ${event.alternateCities.map(cell).join(" / ")}` : cell(event.city);
+      const price = event.price ? link(event.price.label, event.price.url)
+        : event.pricingUrl ? `Not found; ${link("check pricing", event.pricingUrl)}` : "Not found";
+      const registration = event.registrationUrl ? link(event.registrationLabel ?? "Register", event.registrationUrl) : "Not found";
+      const staleTickets = event.stale && (event.price || event.registrationUrl) ? ` (stale; checked ${cell(event.ticketCheckedAt ?? "previous refresh")})` : "";
+      return `| ${dates}${event.start < window.start ? " (ongoing)" : ""} | ${link(event.name, event.url)} | ${location} | ${event.topics.join(", ")} | ${price}${staleTickets} | ${registration}${staleTickets} | ${evidence}${conflict}; ${sources} |`;
     }),
     ...(events.length ? [] : ["", "**No matching events found.** This does not mean no US conferences exist. Review source coverage below."]),
     "",
@@ -412,6 +507,7 @@ export function renderMarkdown(snapshot) {
     "## Coverage and attribution",
     "",
     "- Discovery: [confs.tech / conference-data](https://github.com/tech-conferences/conference-data), community-maintained data under its [MIT license](https://github.com/tech-conferences/conference-data/blob/main/LICENSE.md). Records are filtered, normalized, classified, and sometimes corrected using official sources. See [NOTICE](./NOTICE).",
+    "- Discovery: [developers.events / Developers Conferences Agenda](https://github.com/scraly/developers-conferences-agenda) by Aurelie Vache and contributors, content under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Its records are filtered, normalized, classified, merged, and sometimes corrected here. **Noncommercial use only under that license; do not assume this combined dataset is MIT-licensed.** Per-row source links preserve provenance; see [NOTICE](./NOTICE).",
     "- Official verification: matching Schema.org Event data or a narrowly scoped, tested official-page adapter. Missing or ambiguous evidence stays unverified.",
     "- US in-person and hybrid events only; virtual-only events and confirmed cancelled/postponed events are excluded.",
     "- Public feeds are not exhaustive and can contain errors. Conferences absent from the feed or without supported official metadata can be missed. Add sources or adapters to improve coverage.",

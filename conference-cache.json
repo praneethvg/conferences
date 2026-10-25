@@ -1,24 +1,77 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-19T19:21:10.810Z",
+  "generatedAt": "2026-10-25T19:33:03.610Z",
   "events": [
     {
-      "name": "PyTorch Conference North America: The Deep Learning Conference",
-      "start": "2026-10-20",
-      "end": "2026-10-21",
-      "city": "San Jose, CA",
+      "name": "IBM TechXchange",
+      "start": "2026-10-26",
+      "end": "2026-10-29",
+      "city": "Atlanta, GA",
       "country": "US",
-      "url": "https://events.linuxfoundation.org/pytorch-conference-north-america/",
+      "url": "https://www.ibm.com/community/ibm-techxchange-conference/",
       "topics": [
         "AI",
-        "AI infrastructure"
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": {
+        "label": "USD 1,599 (full conference pass)",
+        "url": "https://www.ibm.com/community/ibm-techxchange-conference/"
+      },
+      "registrationUrl": "https://reg.tools.ibm.com/flow/ibm/techxchange26/reg",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "ODSC AI West 2026",
+      "start": "2026-10-27",
+      "end": "2026-10-29",
+      "city": "Burlingame, CA",
+      "country": "US",
+      "url": "https://odsc.ai/west/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://odsc.ai/west/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Power Platform Community Conference 2026",
+      "start": "2026-10-27",
+      "end": "2026-10-29",
+      "city": "Las Vegas, NV",
+      "country": "US",
+      "url": "https://powerplatformconf.com/",
+      "topics": [
+        "DevOps / SRE"
       ],
       "evidence": "Official structured data",
       "sources": [
-        "https://events.linuxfoundation.org/pytorch-conference-north-america/"
+        "https://developers.events/all-events.json",
+        "https://powerplatformconf.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": "https://powerplatformconf.com/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "SEV0",
@@ -28,18 +81,138 @@
       "country": "US",
       "url": "https://sev0.com/",
       "topics": [
+        "Cloud / Kubernetes",
         "DevOps / SRE",
         "Data infrastructure"
       ],
       "evidence": "Feed only",
       "sources": [
+        "https://developers.events/all-events.json",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/data.json",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/sre.json"
       ],
       "dateConflict": false,
       "alternateEnds": [],
+      "locationConflict": false,
+      "alternateCities": [],
       "stale": false,
-      "lastVerifiedAt": null
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "unprompted | The AI Security Practitioner Conference (October 2026)",
+      "start": "2026-10-27",
+      "end": "2026-10-29",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://unpromptedcon.org/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Meta @Scale: PRODUCT 2026",
+      "start": "2026-10-28",
+      "end": "2026-10-28",
+      "city": "Menlo Park, CA",
+      "country": "US",
+      "url": "https://atscaleconference.com/events/product-2026/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Official page evidence",
+      "sources": [
+        "https://atscaleconference.com/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": "https://atscaleconference.com/events/product-2026/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Women in Statistics and Data Science Conference 2026",
+      "start": "2026-10-28",
+      "end": "2026-10-30",
+      "city": "Cincinnati, OH",
+      "country": "US",
+      "url": "https://ww2.amstat.org/meetings/wsds/2026/",
+      "topics": [
+        "AI",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://ww2.amstat.org/meetings/wsds/2026/registration.cfm",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Agentic AI Summit Boston",
+      "start": "2026-10-29",
+      "end": "2026-10-29",
+      "city": "Boston, MA",
+      "country": "US",
+      "url": "https://world.aiacceleratorinstitute.com/location/agenticaiboston",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://world.aiacceleratorinstitute.com/location/agenticaiboston/register",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Web AI Summit",
+      "start": "2026-10-30",
+      "end": "2026-10-30",
+      "city": "Sunnyvale, CA",
+      "country": "US",
+      "url": "https://goo.gle/WebAISummit26",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "AI DevCon NYC",
@@ -50,11 +223,67 @@
       "url": "https://tessl.io/devcon",
       "topics": [
         "AI",
+        "Cloud / Kubernetes",
         "Data infrastructure"
       ],
       "evidence": "Feed only",
       "sources": [
+        "https://developers.events/all-events.json",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/data.json"
+      ],
+      "dateConflict": false,
+      "alternateEnds": [],
+      "locationConflict": true,
+      "alternateCities": [
+        "Brooklyn, NY",
+        "New York, NY"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": {
+        "label": "$300 conference-only; $400 full 3-day (currency as published)",
+        "url": "https://tessl.io/devcon"
+      },
+      "registrationUrl": "https://tessl.io/devcon#tickets",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Applied AI 2026 Fall Conference",
+      "start": "2026-11-02",
+      "end": "2026-11-02",
+      "city": "Saint Paul, MN",
+      "country": "US",
+      "url": "https://appliedaiconf.com/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Microsoft TechCon 365 Dallas 2026",
+      "start": "2026-11-02",
+      "end": "2026-11-06",
+      "city": "Dallas, TX",
+      "country": "US",
+      "url": "https://www.techcon365.com/Dallas",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
       ],
       "stale": false,
       "lastVerifiedAt": null
@@ -71,13 +300,357 @@
       ],
       "evidence": "Feed only",
       "sources": [
+        "https://developers.events/all-events.json",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/data.json",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/opensource.json"
       ],
       "dateConflict": false,
       "alternateEnds": [],
+      "locationConflict": false,
+      "alternateCities": [],
       "stale": false,
-      "lastVerifiedAt": null
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://luma.com/eis7567t",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Humanoid Robots Summit North America 2026",
+      "start": "2026-11-03",
+      "end": "2026-11-04",
+      "city": "Chicago, IL",
+      "country": "US",
+      "url": "https://acgrobotus.com/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Elastic{ON}",
+      "start": "2026-11-04",
+      "end": "2026-11-04",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://www.elastic.co/events/elasticon",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Voice Agents Forum",
+      "start": "2026-11-05",
+      "end": "2026-11-05",
+      "city": "San Francisco, California",
+      "country": "US",
+      "url": "https://luma.com/voiceagentssf",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://developers.events/all-events.json",
+        "https://luma.com/voiceagentssf"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": {
+        "label": "USD 300 (listed offers; types vary)",
+        "url": "https://luma.com/voiceagentssf"
+      },
+      "registrationUrl": "https://luma.com/voiceagentssf",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "PNW Day of Data 2026",
+      "start": "2026-11-06",
+      "end": "2026-11-07",
+      "city": "Washington, DC",
+      "country": "US",
+      "url": "https://dayofdata.org/2026-11-07-dayofdata1149/",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.zeffy.com/en-US/ticketing/pnw-day-of-data--2026",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "DevFest KC 2026",
+      "start": "2026-11-07",
+      "end": "2026-11-07",
+      "city": "Kansas City, MO",
+      "country": "US",
+      "url": "https://devfestkc.com/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "7th Annual National HBCU Blockchain, FinTech & AI Conference",
+      "start": "2026-11-08",
+      "end": "2026-11-10",
+      "city": "Nashville, TN",
+      "country": "US",
+      "url": "https://fintech.morgan.edu/conference-2026/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://fintech.morgan.edu/conference-2026/conference/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Maintainer Summit: KubeCon + CloudNativeCon North America 2026",
+      "start": "2026-11-08",
+      "end": "2026-11-08",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/features-add-ons/maintainer-summit/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Agentics Day: MCP + Agents North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/agentics-day-mcp-agents/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "ArgoCon North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/argocon/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "BackstageCon North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/backstagecon/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "CiliumCon North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/ciliumcon/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Cloud Native AI & Inference Day North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/cloud-native-ai-inference-day/",
+      "topics": [
+        "AI",
+        "AI infrastructure",
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Distributed SQL Summit 2026",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.ringcentral.com/events/distributed-sql-summit-salt-lake-city-2026/registration",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "FluxCon North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/fluxcon/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "KubeAuto Day North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://kubeauto.day/north-america",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://kubeauto.day/north-america#register",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "KubeCon + CloudNativeCon North America",
@@ -93,14 +666,117 @@
       ],
       "evidence": "Official structured data",
       "sources": [
+        "https://developers.events/all-events.json",
         "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2026",
+        "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2026/",
         "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/devops.json"
       ],
       "dateConflict": false,
       "alternateEnds": [],
+      "locationConflict": false,
+      "alternateCities": [],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": {
+        "label": "USD 1,899 conference-only; USD 2,278 all-access (corporate; tax extra)",
+        "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/"
+      },
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Kubernetes on Edge Day North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/kubernetes-on-edge-day/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "LearnKube Day: Salt Lake City 2026",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://learnkube.com/learnkube-day-salt-lake-city-2026",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Observability Day North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/observability-day/",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Platform Engineering Day North America",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "city": "Salt Lake City, UT",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/platform-engineering-day/",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "AI Engineer Code Summit 2026",
@@ -114,12 +790,201 @@
       ],
       "evidence": "Official structured data",
       "sources": [
-        "https://ai.engineer/code"
+        "https://ai.engineer/code",
+        "https://developers.events/all-events.json"
       ],
       "dateConflict": false,
       "alternateEnds": [],
+      "locationConflict": false,
+      "alternateCities": [],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": {
+        "label": "$1,299 regular (application approval; fees extra; currency as published)",
+        "url": "https://ai.engineer/code"
+      },
+      "registrationUrl": "https://ai.engineer/code#access",
+      "registrationLabel": "Apply to attend",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "BADCamp 2026",
+      "start": "2026-11-12",
+      "end": "2026-11-13",
+      "city": "Oakland, CA",
+      "country": "US",
+      "url": "https://badcamp.org/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://badcamp.org/event-registration",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Seattle Day of Data 2026",
+      "start": "2026-11-12",
+      "end": "2026-11-12",
+      "city": "Seattle, WA",
+      "country": "US",
+      "url": "https://dayofdata.org/2026-11-12-dayofdata1155/",
+      "topics": [
+        "AI",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.eventbrite.com/e/day-of-data-seattle-2026-pg-edition-tickets-2003212567715",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "International Conference on the Social Impact of AI (SIAI 2026)",
+      "start": "2026-11-13",
+      "end": "2026-11-14",
+      "city": "Boston, MA",
+      "country": "US",
+      "url": "https://www.siai.co/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.siai.co/registration",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "DevFest × SunHacks ASU 2026",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "city": "Tempe, AZ",
+      "country": "US",
+      "url": "https://app.advocu.com/public/gde/events/6aaf9bb2b148f7c9ee0b8e6d?cfpid=6abb91b06e9fde4efc75842a",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "M365 Community Days Atlanta 2026",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "city": "Georgia",
+      "country": "US",
+      "url": "https://www.eventbrite.com/e/m365-community-days-atlanta-26-tickets-1996346079865",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "AI Coding Summit New York Edition",
+      "start": "2026-11-16",
+      "end": "2026-11-19",
+      "city": "New York, NY",
+      "country": "US",
+      "url": "https://aicodingsummit.com/nyc",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://aicodingsummit.com/nyc#tickets",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "KubeAuto Day Las Vegas",
+      "start": "2026-11-29",
+      "end": "2026-11-29",
+      "city": "Las Vegas, NV",
+      "country": "US",
+      "url": "https://kubeauto.day/las-vegas",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://kubeauto.day/las-vegas#register",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "AI Dev NYC 2026",
+      "start": "2026-11-30",
+      "end": "2026-12-01",
+      "city": "New York, NY",
+      "country": "US",
+      "url": "https://ai-dev.deeplearning.ai/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://ai-dev.deeplearning.ai/#tickets",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "AWS re:Invent 2026",
@@ -137,7 +1002,15 @@
         "https://aws.amazon.com/events/reinvent/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": {
+        "label": "USD 2,499 (full pass)",
+        "url": "https://aws.amazon.com/events/reinvent/pricing/"
+      },
+      "registrationUrl": "https://registration.awsevents.com/flow/awsevents/reinvent2026/reg",
+      "registrationLabel": "Register",
+      "pricingUrl": "https://aws.amazon.com/events/reinvent/pricing/",
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "ODSC AI NYC 2026",
@@ -155,7 +1028,149 @@
         "https://odsc.ai/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": "https://odsc.ai/west",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "ODSC AI NYC 2026: AI for Work Summit",
+      "start": "2026-12-02",
+      "end": "2026-12-03",
+      "city": "New York, NY",
+      "country": "US",
+      "url": "https://summit.ai/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://summit.ai/#passes",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Day of Data and AI - Houston",
+      "start": "2026-12-04",
+      "end": "2026-12-05",
+      "city": "Houston, TX",
+      "country": "US",
+      "url": "https://dayofdata.org/2026-12-05-dayofdata1162/",
+      "topics": [
+        "AI",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.eventbrite.com/e/day-of-data-and-ai-houston-tickets-1992652825241?aff=oddtdtcreator",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Colorado Applied Machine Learning Mini Conference 2026",
+      "start": "2026-12-05",
+      "end": "2026-12-05",
+      "city": "Denver, CO",
+      "country": "US",
+      "url": "https://amlcoftherockies.org/conferences/mini-conference",
+      "topics": [
+        "AI",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "DistrictCon",
+      "start": "2026-12-06",
+      "end": "2026-12-07",
+      "city": "Washington, DC",
+      "country": "US",
+      "url": "https://www.districtcon.org/",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.districtcon.org/tickets",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "The AI Summit New York",
+      "start": "2026-12-08",
+      "end": "2026-12-10",
+      "city": "New York, NY",
+      "country": "US",
+      "url": "https://newyork.theaisummit.com/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://developers.events/all-events.json",
+        "https://newyork.theaisummit.com/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "AI Infra Summit 6",
+      "start": "2026-12-09",
+      "end": "2026-12-09",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://aiinfra.live/",
+      "topics": [
+        "AI",
+        "AI infrastructure"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://developers.events/all-events.json",
+        "https://aiinfra.live/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": "https://luma.com/aiinfra6",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "NeurIPS Atlanta satellite 2026",
@@ -172,7 +1187,34 @@
         "https://neurips.cc/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": "https://neurips.cc/Register/view-registration",
+      "registrationLabel": "Register",
+      "pricingUrl": "https://neurips.cc/Conferences/2026/Pricing",
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "KCD Florida",
+      "start": "2026-12-11",
+      "end": "2026-12-11",
+      "city": "Miami, FL",
+      "country": "US",
+      "url": "https://community2.cncf.io/events/details/cncf-kcd-florida-presents-kcd-florida-2026-miami/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "Daytona Compute",
@@ -182,15 +1224,114 @@
       "country": "US",
       "url": "https://compute.daytona.io/",
       "topics": [
+        "AI",
         "Cloud / Kubernetes",
         "Data infrastructure"
       ],
       "evidence": "Feed only",
       "sources": [
+        "https://developers.events/all-events.json",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json"
       ],
+      "dateConflict": false,
+      "alternateEnds": [],
+      "locationConflict": false,
+      "alternateCities": [],
       "stale": false,
-      "lastVerifiedAt": null
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://luma.com/daytona-compute",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "AI DevWorld 2027",
+      "start": "2027-02-09",
+      "end": "2027-02-11",
+      "city": "Santa Clara, CA",
+      "country": "US",
+      "url": "https://www.developerweek.com/ai-devworld/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.developerweek.com/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "OpsWorld 2027",
+      "start": "2027-02-09",
+      "end": "2027-02-11",
+      "city": "Santa Clara, CA",
+      "country": "US",
+      "url": "https://www.developerweek.com/ai-devworld/",
+      "topics": [
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.developerweek.com/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "ProductWorld 2027",
+      "start": "2027-02-09",
+      "end": "2027-02-11",
+      "city": "Santa Clara, CA",
+      "country": "US",
+      "url": "https://www.developerweek.com/ai-devworld/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.developerweek.com/register/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Dynatrace Perform 2027",
+      "start": "2027-02-16",
+      "end": "2027-02-18",
+      "city": "Las Vegas, NV",
+      "country": "US",
+      "url": "https://www.dynatrace.com/perform/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.dynatrace.com/perform/#performReg",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "FAST '27: 25th USENIX Conference on File and Storage Technologies",
@@ -206,8 +1347,82 @@
       "sources": [
         "https://www.usenix.org/conferences"
       ],
-      "stale": true,
-      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "PlatformCon Live Day San Francisco",
+      "start": "2027-02-24",
+      "end": "2027-02-24",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://sanfrancisco.platformcon.com/",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://lu.ma/event/evt-J0XAVPbZXWQcpbL",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "FABCON 2027 & SQLCON 2027 - SESSIONS",
+      "start": "2027-03-08",
+      "end": "2027-03-12",
+      "city": "Atlanta, GA",
+      "country": "US",
+      "url": "https://fabriccon.com/",
+      "topics": [
+        "Cloud / Kubernetes",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://fabriccon.com/tickets",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "FABCON 2027 & SQLCON 2027 - WORKSHOPS",
+      "start": "2027-03-08",
+      "end": "2027-03-12",
+      "city": "Atlanta, GA",
+      "country": "US",
+      "url": "https://fabriccon.com/",
+      "topics": [
+        "Cloud / Kubernetes",
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://fabriccon.com/tickets",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "NVIDIA GTC 2027",
@@ -225,7 +1440,101 @@
         "https://www.nvidia.com/gtc/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "AI Context New York 2027",
+      "start": "2027-03-16",
+      "end": "2027-03-16",
+      "city": "New York, NY",
+      "country": "US",
+      "url": "https://www.aicontextseries.com/new-york",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://developers.events/all-events.json",
+        "https://www.aicontextseries.com/new-york"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Day of Data - Richmond 2027",
+      "start": "2027-03-20",
+      "end": "2027-03-20",
+      "city": "Richmond, VA",
+      "country": "US",
+      "url": "https://dayofdata.org/richmond",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "CypherCon 10 (2027)",
+      "start": "2027-03-24",
+      "end": "2027-03-25",
+      "city": "Milwaukee, WI",
+      "country": "US",
+      "url": "https://cyphercon.com/",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://register.cyphercon.com/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Optimized AI Conference 2027",
+      "start": "2027-03-31",
+      "end": "2027-04-01",
+      "city": "Atlanta, GA",
+      "country": "US",
+      "url": "https://www.oaiconference.com/",
+      "topics": [
+        "AI"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.oaiconference.com/registration",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "SCaLE",
@@ -242,7 +1551,34 @@
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/networking.json"
       ],
       "stale": false,
-      "lastVerifiedAt": null
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://register.socallinuxexpo.org/reg23",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "DevOpsDays Los Angeles 2027",
+      "start": "2027-04-02",
+      "end": "2027-04-02",
+      "city": "Los Angeles, CA",
+      "country": "US",
+      "url": "https://devopsdays.org/events/2027-los-angeles/welcome/",
+      "topics": [
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "SREcon27 Americas",
@@ -258,8 +1594,35 @@
       "sources": [
         "https://www.usenix.org/conferences"
       ],
-      "stale": true,
-      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Analytics and Data Summit 2027",
+      "start": "2027-04-13",
+      "end": "2027-04-15",
+      "city": "Redwood Shores, CA",
+      "country": "US",
+      "url": "http://andouc.org/",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "Google Cloud Next 2027",
@@ -277,7 +1640,126 @@
         "https://cloud.withgoogle.com/next"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "DevOpsDays Atlanta 2027",
+      "start": "2027-04-20",
+      "end": "2027-04-21",
+      "city": "Atlanta, GA",
+      "country": "US",
+      "url": "https://devopsdays.org/events/2027-atlanta",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "DevOpsDays Raleigh 2027",
+      "start": "2027-04-27",
+      "end": "2027-04-28",
+      "city": "Raleigh, NC",
+      "country": "US",
+      "url": "https://devopsdays.org/events/2027-raleigh",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "GrafanaCON 2027",
+      "start": "2027-04-27",
+      "end": "2027-04-29",
+      "city": "New York, NY",
+      "country": "US",
+      "url": "https://grafana.com/events/grafanacon/",
+      "topics": [
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "AGNTCon + MCPCon North America 2027",
+      "start": "2027-04-28",
+      "end": "2027-04-29",
+      "city": "San Francisco, CA",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/agntcon-mcpcon-north-america-2027/",
+      "topics": [
+        "Cloud / Kubernetes"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://developers.events/all-events.json",
+        "https://events.linuxfoundation.org/agntcon-mcpcon-north-america-2027/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "MinuteCon",
+      "start": "2027-04-30",
+      "end": "2027-05-01",
+      "city": "Boston, MA",
+      "country": "US",
+      "url": "https://minutecon.org/",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "ODSC East 2027",
@@ -295,7 +1777,12 @@
         "https://odsc.ai/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": "https://odsc.ai/west",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation",
@@ -311,8 +1798,37 @@
       "sources": [
         "https://www.usenix.org/conferences"
       ],
-      "stale": true,
-      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "DevOpsDays Nashville 2027",
+      "start": "2027-05-20",
+      "end": "2027-05-21",
+      "city": "Murfreesboro, TN",
+      "country": "US",
+      "url": "https://dodnashville.com/",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://developers.events/all-events.json",
+        "https://dodnashville.com/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "Data Center World",
@@ -330,7 +1846,12 @@
         "https://datacenterworld.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "DevOpsCon San Diego",
@@ -349,8 +1870,15 @@
       ],
       "dateConflict": false,
       "alternateEnds": [],
+      "locationConflict": false,
+      "alternateCities": [],
       "stale": false,
-      "lastVerifiedAt": null
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://devopscon.io/amsterdam/tickets-amsterdam/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "AI Con USA",
@@ -366,13 +1894,38 @@
       ],
       "evidence": "Feed only",
       "sources": [
+        "https://developers.events/all-events.json",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/sre.json"
       ],
       "dateConflict": false,
       "alternateEnds": [],
+      "locationConflict": false,
+      "alternateCities": [],
       "stale": false,
       "lastVerifiedAt": null
+    },
+    {
+      "name": "PG DATA 2027",
+      "start": "2027-06-11",
+      "end": "2027-06-12",
+      "city": "Chicago, IL",
+      "country": "US",
+      "url": "https://2027.pg-data.org/",
+      "topics": [
+        "Data infrastructure"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://www.eventzilla.net/e/pg-data-2026-2138653735",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "Data Centre North America",
@@ -387,10 +1940,20 @@
       ],
       "evidence": "Feed only",
       "sources": [
+        "https://developers.events/all-events.json",
         "https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json"
       ],
+      "dateConflict": false,
+      "alternateEnds": [],
+      "locationConflict": false,
+      "alternateCities": [],
       "stale": false,
-      "lastVerifiedAt": null
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": "https://datacentrecongress.com/northamerica/registration/",
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "CVPR 2027",
@@ -407,7 +1970,12 @@
         "https://cvpr.thecvf.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "AI Engineer World's Fair 2027",
@@ -424,7 +1992,12 @@
         "https://ai.engineer/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-19T19:21:10.810Z"
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     },
     {
       "name": "OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation",
@@ -440,8 +2013,60 @@
       "sources": [
         "https://www.usenix.org/conferences"
       ],
-      "stale": true,
-      "lastVerifiedAt": "2026-10-18T03:08:50.324Z"
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "Devopsdays Chicago",
+      "start": "2027-08-10",
+      "end": "2027-08-11",
+      "city": "Chicago, IL",
+      "country": "US",
+      "url": "https://devopsdays.org/events/2027-chicago",
+      "topics": [
+        "Cloud / Kubernetes",
+        "DevOps / SRE"
+      ],
+      "evidence": "Feed only",
+      "sources": [
+        "https://developers.events/all-events.json"
+      ],
+      "stale": false,
+      "lastVerifiedAt": null,
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
+    },
+    {
+      "name": "PyTorch Conference 2027",
+      "start": "2027-10-06",
+      "end": "2027-10-07",
+      "city": "San Jose, CA",
+      "country": "US",
+      "url": "https://events.linuxfoundation.org/pytorch-conference-2027/",
+      "topics": [
+        "AI",
+        "AI infrastructure"
+      ],
+      "evidence": "Official structured data",
+      "sources": [
+        "https://developers.events/all-events.json",
+        "https://events.linuxfoundation.org/pytorch-conference-2027/"
+      ],
+      "stale": false,
+      "lastVerifiedAt": "2026-10-25T19:33:03.610Z",
+      "price": null,
+      "registrationUrl": null,
+      "registrationLabel": "Register",
+      "pricingUrl": null,
+      "ticketCheckedAt": "2026-10-25T19:33:03.610Z"
     }
   ]
 }

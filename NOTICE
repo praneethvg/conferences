@@ -23,3 +23,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Additional conference metadata source:
+developers.events / Developers Conferences Agenda
+By Aurelie Vache and contributors
+https://developers.events/
+https://github.com/scraly/developers-conferences-agenda
+https://github.com/scraly/developers-conferences-agenda/blob/master/LICENSE-CONTENT
+
+Content is licensed under Creative Commons Attribution-NonCommercial 4.0
+International (CC BY-NC 4.0):
+https://creativecommons.org/licenses/by-nc/4.0/
+https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+This project filters, normalizes, classifies, merges duplicate records, and
+sometimes corrects metadata using linked official evidence. Per-event source
+links retain attribution for adapted records, including in the generated cache.
+Retain this attribution, the license link, and the indication of modifications
+when sharing. Licensed reuse of this content must be noncommercial; commercial
+reuse requires separate permission or excluding that content. Do not treat the
+combined dataset as solely MIT-licensed. No endorsement by upstream contributors
+or conference organizers is implied.

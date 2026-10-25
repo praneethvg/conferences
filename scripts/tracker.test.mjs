@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import {
   TOPICS, dateOnly, windowFor, isUS, topicsFor, httpUrl, inWindow, normalizedName,
-  namesMatch, parseFeed, structuredEvents, parseOfficial, textEvents,
+  namesMatch, parseFeed, parseDevelopersFeed, structuredEvents, parseOfficial, textEvents,
   reconcileOfficial, deduplicate, mapLimit, fetchText, renderMarkdown,
 } from "./tracker.mjs";
 import { collect, refresh } from "./refresh.mjs";
@@ -32,6 +32,12 @@ const officialRecord = {
 };
 const event = parseFeed([feedRecord], source)[0];
 const ld = (value) => `<script type="application/ld+json">${JSON.stringify(value)}</script>`;
+const developersSource = { type: "developers-events", name: "developers.events", url: "https://feeds.example/all-events.json" };
+const developersRecord = {
+  name: feedRecord.name, hyperlink: feedRecord.url, country: "USA", city: feedRecord.city,
+  date: [Date.UTC(2026, 10, 3), Date.UTC(2026, 10, 5)],
+  status: "open", tags: [{ key: "topic", value: "artificial-intelligence" }],
+};
 
 test("rolling window is a calendar year, including month/year boundaries", () => {
   assert.deepEqual(windowFor("2026-10-17"), { start: "2026-10-17", end: "2027-10-17" });
@@ -88,6 +94,40 @@ test("feed errors fail explicitly instead of yielding an empty success", () => {
   for (const records of [{}, [null], [{ title: "changed schema" }], [{ ...feedRecord, startDate: "2026-02-30" }], [{ ...feedRecord, endDate: "2026-01-01" }], [{ ...feedRecord, url: "javascript:alert(1)" }]]) {
     assert.throws(() => parseFeed(records, source));
   }
+});
+
+test("developers.events normalizes timestamp ranges, single days, and typed topic tags", () => {
+  const parsed = parseDevelopersFeed([
+    developersRecord,
+    { ...developersRecord, name: "Compute Summit", date: [Date.UTC(2027, 0, 20)] },
+    { ...developersRecord, name: "Unknown Summit", tags: [{ key: "tech", value: "kubernetes" }], date: [...developersRecord.date].reverse() },
+    { ...developersRecord, name: "Unknown Summit", tags: [{ key: "language", value: "ai" }] },
+  ], developersSource);
+  assert.equal(parsed.length, 3);
+  assert.deepEqual(parsed[0], { ...event, topics: ["AI"], sources: [developersSource.url] });
+  assert.equal(parsed[1].start, "2027-01-20");
+  assert.equal(parsed[1].end, "2027-01-20");
+  assert.deepEqual(parsed[2].topics, ["Cloud / Kubernetes"]);
+  assert.equal(parsed[2].start, "2026-11-03");
+});
+
+test("developers.events excludes virtual, delayed, postponed, cancelled, non-US and unlocated records", () => {
+  const records = [
+    developersRecord,
+    ...["Canceled", "Virtualized", "Postponed in Automn", "Delayed to Automn"].map((status) => ({ ...developersRecord, status })),
+    { ...developersRecord, country: "Canada" },
+    { ...developersRecord, city: "" },
+    { ...developersRecord, country: "Online" },
+  ];
+  assert.equal(parseDevelopersFeed(records, developersSource).length, 1);
+});
+
+test("developers.events rejects empty feeds, invalid timestamps, tags, URLs and schema drift", () => {
+  for (const records of [
+    [], {}, [null], [{ ...developersRecord, date: [] }], [{ ...developersRecord, date: ["2026-11-03"] }],
+    [{ ...developersRecord, date: [NaN] }], [{ ...developersRecord, date: [1e16] }],
+    [{ ...developersRecord, tags: ["ai"] }], [{ ...developersRecord, hyperlink: "javascript:alert(1)" }],
+  ]) assert.throws(() => parseDevelopersFeed(records, developersSource));
 });
 
 test("event URLs reject unsupported schemes and embedded credentials", () => {
@@ -217,6 +257,42 @@ test("USENIX table discovers US systems events and excludes non-US and unrelated
   assert.equal(nextYear.start, "2028-03-20");
 });
 
+function metaCard(title, date, venue, description, url = "https://atscaleconference.com/events/product-2026/") {
+  return `<span class="title-text"><p><strong>${title}</strong></p></span>
+    <div class="body-box"><div class="body-text"><p><strong>${date}</strong><br><strong>${venue}</strong></p>
+    <p>${description}</p></div><a href="${url}">View Event</a></div>`;
+}
+
+test("Meta @Scale adapter reads independent event cards with exact dates, venues and topics", () => {
+  const source = { url: "https://atscaleconference.com/", textAdapter: "meta-atscale" };
+  const html = metaCard("PRODUCT", "October 28, 2026", "Meta Campus, Menlo Park, CA", "Building AI-native products.")
+    + metaCard("AI &amp; DATA - PAST EVENT", "June 17, 2026", "Meta Campus, Menlo Park, CA", "AI infrastructure.")
+    + metaCard("SYSTEMS &amp; RELIABILITY", "June 25-26, 2027", "Meydenbauer Center, Bellevue, Washington", "GPU inference and SRE.")
+    + metaCard("NETWORKING", "August 25, 2027", "Santa Clara Convention Center, Santa Clara, CA", "Cloud networking.");
+  const parsed = textEvents(html, source);
+  assert.equal(parsed.length, 4);
+  assert.equal(parsed[0].name, "Meta @Scale: PRODUCT 2026");
+  assert.equal(parsed[0].start, "2026-10-28");
+  assert.equal(parsed[0].end, "2026-10-28");
+  assert.equal(parsed[0].city, "Menlo Park, CA");
+  assert.deepEqual(parsed[0].topics, ["AI"]);
+  assert.equal(parsed[0].url, "https://atscaleconference.com/events/product-2026/");
+  assert.equal(parsed[1].start, "2026-06-17");
+  assert.equal(parsed[2].end, "2027-06-26");
+  assert.equal(parsed[2].city, "Bellevue, WA");
+  assert.ok(parsed[2].topics.includes("AI infrastructure"));
+  assert.ok(parsed[3].topics.includes("Cloud / Kubernetes"));
+  assert.equal(parsed.filter((entry) => inWindow(entry, windowFor("2026-10-25"))).length, 3);
+});
+
+test("Meta @Scale cannot invent dates or US venues from unrelated or unsupported markup", () => {
+  const source = { url: "https://atscaleconference.com/", textAdapter: "meta-atscale" };
+  assert.equal(textEvents("<p>October 28, 2026 Meta Campus, Menlo Park, CA</p>", source).length, 0);
+  assert.throws(() => textEvents(metaCard("PRODUCT", "October 28", "Meta Campus, Menlo Park, CA", "AI"), source), /unsupported date/);
+  assert.throws(() => textEvents(metaCard("PRODUCT", "October 28, 2026", "London, UK", "AI"), source), /unsupported US venue/);
+  assert.equal(textEvents(metaCard("PRODUCT", "October 28, 2026", "Virtual", "AI"), source).length, 0);
+});
+
 test("name normalization merges year and North America abbreviations", () => {
   assert.equal(normalizedName("KubeCon + CloudNativeCon NA 2026"), normalizedName("KubeCon CloudNativeCon North America"));
   assert.equal(namesMatch("NVIDIA GTC 2027", ["GTC"]), true);
@@ -229,7 +305,7 @@ test("deduplication merges evidence and topics but retains separate dates and ci
     event,
     { ...official, topics: ["AI infrastructure"] },
     { ...event, start: "2026-12-01", end: "2026-12-03" },
-    { ...event, city: "New York, NY" },
+    { ...event, city: "New York, NY", url: "https://events.example/new-york" },
   ]);
   assert.equal(merged.length, 3);
   const confirmed = merged.find((entry) => entry.evidence === "Official structured data");
@@ -244,6 +320,43 @@ test("feed-only end-date conflicts stay visible; authoritative evidence resolves
   const resolved = deduplicate([...conflicts, parseOfficial(officialRecord, event.url)]);
   assert.equal(resolved[0].dateConflict, false);
   assert.deepEqual(resolved[0].alternateEnds, []);
+});
+
+test("cross-feed duplicates merge provenance across city formatting and official subtitles", () => {
+  const fromDevelopers = parseDevelopersFeed([developersRecord], developersSource)[0];
+  const merged = deduplicate([
+    event, { ...fromDevelopers, city: "San Jose", url: "http://www.events.example/ai/" },
+    { ...parseOfficial(officialRecord, event.url), name: "AI Summit 2026: Infrastructure Conference" },
+  ]);
+  assert.equal(merged.length, 1);
+  assert.equal(merged[0].evidence, "Official structured data");
+  assert.ok(merged[0].sources.includes(source.url));
+  assert.ok(merged[0].sources.includes(developersSource.url));
+});
+
+test("same-site colocated events, different cities/states and ambiguous matches stay distinct", () => {
+  assert.equal(deduplicate([event, { ...event, name: "AI Summit Workshop" }]).length, 2);
+  assert.equal(deduplicate([event, { ...event, name: "ProductWorld" }]).length, 2);
+  assert.equal(deduplicate([event, { ...event, city: "San Jose, NM", url: "https://events.example/new-mexico" }]).length, 2);
+  assert.equal(deduplicate([
+    { ...event, city: "Springfield, MA", url: "https://events.example/ma" },
+    { ...event, city: "Springfield, IL", url: "https://events.example/il" },
+    { ...event, city: "Springfield", url: "https://events.example/springfield" },
+  ]).length, 3);
+});
+
+test("same conference URL with conflicting feed locations stays one visibly conflicted entry", () => {
+  const merged = deduplicate([event, { ...event, city: "Brooklyn, NY" }]);
+  assert.equal(merged.length, 1);
+  assert.equal(merged[0].locationConflict, true);
+  assert.deepEqual(merged[0].alternateCities, ["Brooklyn, NY", "San Jose, CA"]);
+  const resolved = deduplicate([...merged, parseOfficial(officialRecord, event.url)]);
+  assert.equal(resolved[0].locationConflict, false);
+  const aliases = deduplicate([
+    { ...event, name: "AIE CODE Summit SF 2026" },
+    { ...event, name: "AI Engineer Code Summit 2026" },
+  ]);
+  assert.equal(aliases.length, 1);
 });
 
 test("bounded concurrency preserves input order", async () => {
@@ -286,12 +399,13 @@ test("network errors retry then fail explicitly", async () => {
 });
 
 const config = {
-  discovery: {
+  discovery: [{
+    type: "confs-tech",
     name: "test feed",
     rawBaseUrl: "https://feeds.example/",
     topics: ["data", "devops"],
     requiredTopics: ["data", "devops"],
-  },
+  }],
   official: [{
     name: "NVIDIA GTC", names: ["GTC"], url: "https://www.nvidia.com/gtc/",
     topics: ["AI", "AI infrastructure"], textAdapter: "nvidia-gtc",
@@ -332,6 +446,83 @@ test("end-to-end collection discovers, verifies, deduplicates, and sorts rolling
   assert.equal(fixture.calls.get("https://events.example/ai"), 1);
   assert.equal(fixture.calls.has("https://feeds.example/conferences/2026/android.json"), false);
   assert.deepEqual(snapshot.window, { start: "2026-10-17", end: "2027-10-17" });
+});
+
+test("collection unions both feeds and official sources, retaining each source URL", async () => {
+  const multi = { ...config, discovery: [...config.discovery, developersSource] };
+  const fixture = fixtures({ [developersSource.url]: JSON.stringify([developersRecord, {
+    ...developersRecord, name: "AI Native Summit", hyperlink: "https://events.example/new",
+    date: [Date.UTC(2027, 3, 10)],
+  }]), "https://events.example/new": "<p>Official date metadata unavailable</p>" });
+  const snapshot = await collect(multi, { ...options, getText: fixture.getText });
+  assert.equal(snapshot.events.length, 3);
+  const shared = snapshot.events.find((entry) => entry.start === "2026-11-03");
+  assert.ok(shared.sources.includes(developersSource.url));
+  assert.equal(fixture.calls.get(event.url), 1);
+  assert.ok(snapshot.checks.some((check) => check.name === developersSource.name && /2 matching US/.test(check.detail)));
+  const markdown = renderMarkdown(snapshot);
+  assert.match(markdown, /CC BY-NC 4\.0/);
+  assert.match(markdown, /Noncommercial use only/);
+});
+
+test("collection reads ticket offers and follows pricing links without conflating date evidence", async () => {
+  const fixture = fixtures({
+    [event.url]: ld({ ...officialRecord, offers: { "@type": "Offer", price: "0", priceCurrency: "USD", url: "/register" } }),
+    [config.official[0].url]: '<p>GTC 2027, coming to San Jose on March 15-18.</p><a href="/gtc/tickets">Pricing</a><a href="/register">Register</a>',
+    "https://www.nvidia.com/gtc/tickets": ld({
+      ...officialRecord, name: "NVIDIA GTC 2027", startDate: "2027-03-15", endDate: "2027-03-18",
+      offers: { "@type": "Offer", price: "199", priceCurrency: "USD" },
+    }),
+  });
+  const snapshot = await collect(config, { ...options, getText: fixture.getText });
+  assert.equal(snapshot.events[0].price.label, "Free (listed offers)");
+  assert.equal(snapshot.events[0].registrationUrl, "https://events.example/register");
+  assert.equal(snapshot.events[1].price.label, "USD 199 (listed offers; types vary)");
+  assert.equal(snapshot.events[1].price.url, "https://www.nvidia.com/gtc/tickets");
+  assert.equal(snapshot.events[1].evidence, "Official page evidence");
+  assert.equal(snapshot.events[1].ticketCheckedAt, options.generatedAt);
+  assert.equal(fixture.calls.get(event.url), 1);
+});
+
+test("pricing-page outages preserve conferences and their usable registration/pricing links", async () => {
+  const fixture = fixtures({
+    [event.url]: ld(officialRecord) + '<a href="/ai/pricing">Pricing</a><a href="/registration">Register now</a>',
+    "https://events.example/ai/pricing": new Error("HTTP 403"),
+  });
+  const snapshot = await collect(config, { ...options, getText: fixture.getText });
+  const priced = snapshot.events[0];
+  assert.equal(priced.price, null);
+  assert.equal(priced.registrationUrl, "https://events.example/registration");
+  assert.ok(snapshot.checks.some((check) => /pricing$/.test(check.name) && check.status === "unavailable"));
+  const markdown = renderMarkdown(snapshot);
+  assert.match(markdown, /Not found; \[check pricing\]/);
+  assert.match(markdown, /\| Price \| Registration \|/);
+});
+
+test("application links found on pricing pages keep their application-only label", async () => {
+  const fixture = fixtures({
+    [event.url]: ld(officialRecord) + '<a href="/ai/pricing">Pricing</a>',
+    "https://events.example/ai/pricing": '<a href="/apply">Apply to attend</a>',
+  });
+  const snapshot = await collect(config, { ...options, getText: fixture.getText });
+  assert.equal(snapshot.events[0].registrationUrl, "https://events.example/apply");
+  assert.equal(snapshot.events[0].registrationLabel, "Apply to attend");
+});
+
+test("failed or malformed additional feeds fail explicitly rather than silently reducing coverage", async () => {
+  for (const result of [new Error("developers feed down"), "{}", "[]", "{broken"]) {
+    const fixture = fixtures({ [developersSource.url]: result });
+    await assert.rejects(collect({ ...config, discovery: [...config.discovery, developersSource] }, {
+      ...options, getText: fixture.getText,
+    }));
+  }
+});
+
+test("discovery rejects unsupported adapters and empty source configuration", async () => {
+  const fixture = fixtures();
+  for (const discovery of [[], [{ type: "unknown" }]]) {
+    await assert.rejects(collect({ ...config, discovery }, { ...options, getText: fixture.getText }), /discovery|source type/);
+  }
 });
 
 test("failed official pages keep feed entries unverified and expose source failure", async () => {
@@ -423,7 +614,7 @@ test("future-year transient failures cannot masquerade as unpublished files", as
 test("discovery configuration must retain explicitly required topic coverage", async () => {
   const fixture = fixtures();
   await assert.rejects(collect({
-    ...config, discovery: { ...config.discovery, requiredTopics: [] },
+    ...config, discovery: [{ ...config.discovery[0], requiredTopics: [] }],
   }, { ...options, getText: fixture.getText }), /requiredTopics/);
 });
 
@@ -456,7 +647,7 @@ test("untrusted event metadata cannot inject Markdown columns, links, or HTML", 
   assert.ok(markdown.includes("&#124;"));
   assert.ok(markdown.includes("a%7Cb"));
   const row = markdown.split("\n").find((line) => line.startsWith("| 2026-11-03"));
-  assert.equal(row.split("|").length, 7);
+  assert.equal(row.split("|").length, 9);
 });
 
 test("local refresh persists cache, retains outage entries, and preserves Markdown on critical failure", async () => {

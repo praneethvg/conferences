@@ -1,11 +1,26 @@
 {
-  "discovery": {
-    "name": "confs.tech",
-    "rawBaseUrl": "https://raw.githubusercontent.com/tech-conferences/conference-data/main/",
-    "topics": ["data", "devops", "sre", "networking", "general", "opensource", "python", "cpp", "performance"],
-    "requiredTopics": ["data", "devops", "sre"]
-  },
+  "discovery": [
+    {
+      "type": "confs-tech",
+      "name": "confs.tech",
+      "rawBaseUrl": "https://raw.githubusercontent.com/tech-conferences/conference-data/main/",
+      "topics": ["data", "devops", "sre", "networking", "general", "opensource", "python", "cpp", "performance"],
+      "requiredTopics": ["data", "devops", "sre"]
+    },
+    {
+      "type": "developers-events",
+      "name": "developers.events",
+      "url": "https://developers.events/all-events.json"
+    }
+  ],
   "official": [
+    {
+      "name": "Meta @Scale",
+      "url": "https://atscaleconference.com/",
+      "topics": ["AI", "AI infrastructure", "DevOps / SRE", "Cloud / Kubernetes", "Data infrastructure"],
+      "names": ["@Scale", "At Scale"],
+      "textAdapter": "meta-atscale"
+    },
     {
       "name": "NVIDIA GTC",
       "url": "https://www.nvidia.com/gtc/",

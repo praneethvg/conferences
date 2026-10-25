@@ -2,11 +2,49 @@ import { readFile, writeFile, rename, rm } from "node:fs/promises";
 import { randomUUID } from "node:crypto";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import {
-  dateOnly, windowFor, inWindow, httpUrl, parseFeed, structuredEvents, parseOfficial,
+  dateOnly, windowFor, inWindow, httpUrl, parseFeed, parseDevelopersFeed, structuredEvents, parseOfficial,
   textEvents, namesMatch, normalizedName, reconcileOfficial, deduplicate, mapLimit, fetchText, renderMarkdown, TOPICS,
 } from "./tracker.mjs";
+import { ticketDetails } from "./tickets.mjs";
 
 const ROOT = new URL("../", import.meta.url);
+
+async function collectDiscovery(source, window, getText) {
+  if (source.type === "developers-events") {
+    const records = JSON.parse(await getText(source.url));
+    const events = parseDevelopersFeed(records, source).filter((event) => inWindow(event, window));
+    return [{ events, check: {
+      name: source.name, url: source.url, status: "ok",
+      detail: `${records.length} records read; ${events.length} matching US entries before deduplication`,
+    } }];
+  }
+  if (source.type !== "confs-tech") throw new Error(`Unsupported discovery source type: ${source.type}`);
+  const firstYear = Number(window.start.slice(0, 4));
+  const lastYear = Number(window.end.slice(0, 4));
+  if (!source.topics?.length || !source.requiredTopics?.length
+    || !source.requiredTopics.every((topic) => source.topics.includes(topic))) {
+    throw new Error("Discovery must configure topics and a nonempty requiredTopics subset");
+  }
+  const files = [];
+  for (let year = firstYear; year <= lastYear; year++) {
+    for (const topic of source.topics) {
+      if (!/^[a-z-]+$/.test(topic)) throw new Error(`Invalid discovery topic: ${topic}`);
+      files.push({ path: `conferences/${year}/${topic}.json`, year, topic });
+    }
+  }
+  return mapLimit(files, 4, async (file) => {
+    const url = new URL(file.path, source.rawBaseUrl).href;
+    const fileSource = { name: `${source.name} ${file.year}/${file.topic}`, url, topic: file.topic };
+    try {
+      const events = parseFeed(JSON.parse(await getText(url)), fileSource).filter((event) => inWindow(event, window));
+      return { events, check: { name: fileSource.name, url, status: "ok", detail: `${events.length} matching US entries before deduplication` } };
+    } catch (error) {
+      const optional = file.year > firstYear || !source.requiredTopics.includes(file.topic);
+      if (error.status !== 404 || !optional) throw error;
+      return { events: [], check: { name: fileSource.name, url, status: "limited", detail: "Topic/year file not published (HTTP 404); this part of discovery is unavailable" } };
+    }
+  });
+}
 
 export async function collect(config, { asOf = new Date().toISOString().slice(0, 10), generatedAt = new Date().toISOString(), getText = fetchText, previousEvents = [] } = {}) {
   const window = windowFor(asOf);
@@ -19,32 +57,9 @@ export async function collect(config, { asOf = new Date().toISOString().slice(0,
     }
     return cache.get(key);
   }
-  const firstYear = Number(window.start.slice(0, 4));
-  const lastYear = Number(window.end.slice(0, 4));
-  if (!config.discovery.topics?.length || !config.discovery.requiredTopics?.length
-    || !config.discovery.requiredTopics.every((topic) => config.discovery.topics.includes(topic))) {
-    throw new Error("Discovery must configure topics and a nonempty requiredTopics subset");
-  }
-  const files = [];
-  for (let year = firstYear; year <= lastYear; year++) {
-    for (const topic of config.discovery.topics) {
-      if (!/^[a-z-]+$/.test(topic)) throw new Error(`Invalid discovery topic: ${topic}`);
-      files.push({ path: `conferences/${year}/${topic}.json`, year, topic });
-    }
-  }
-  const batches = await mapLimit(files, 4, async (file) => {
-    const url = new URL(file.path, config.discovery.rawBaseUrl).href;
-    const source = { name: `${config.discovery.name} ${file.year}/${file.topic}`, url, topic: file.topic };
-    try {
-      const events = parseFeed(JSON.parse(await getText(url)), source);
-      return { events, check: { name: source.name, url, status: "ok", detail: `${events.filter((event) => inWindow(event, window)).length} matching US entries before deduplication` } };
-    } catch (error) {
-      const optional = file.year > firstYear || !config.discovery.requiredTopics.includes(file.topic);
-      if (error.status !== 404 || !optional) throw error;
-      return { events: [], check: { name: source.name, url, status: "limited", detail: "Topic/year file not published (HTTP 404); this part of discovery is unavailable" } };
-    }
-  });
-  const feedEvents = batches.flatMap((batch) => batch.events).filter((event) => inWindow(event, window));
+  if (!Array.isArray(config.discovery) || !config.discovery.length) throw new Error("Configure at least one discovery source");
+  const batches = (await mapLimit(config.discovery, 1, (source) => collectDiscovery(source, window, getText))).flat();
+  const feedEvents = batches.flatMap((batch) => batch.events);
   checks.push(...batches.map((batch) => batch.check));
   const watchResults = await mapLimit(config.official, 4, async (source) => {
     const result = await page(source.url);
@@ -112,7 +127,38 @@ export async function collect(config, { asOf = new Date().toISOString().slice(0,
   for (const event of retained) {
     checks.push({ name: event.name, url: event.url, status: "stale", detail: `Retained from unavailable official source; last verified ${event.lastVerifiedAt}` });
   }
-  const events = deduplicate([...fresh, ...retained]).filter((event) => inWindow(event, window));
+  const datedEvents = deduplicate([...fresh, ...retained]).filter((event) => inWindow(event, window));
+  const ticketResults = await mapLimit(datedEvents, 4, async (event) => {
+    if (event.stale) return { event };
+    const result = await page(event.url);
+    if (result.error) return { event };
+    try {
+      let tickets = ticketDetails(event, result.html, event.url, window.start);
+      const registrationPage = tickets.registrationUrl && new URL(tickets.registrationUrl).origin === new URL(event.url).origin
+        && httpUrl(tickets.registrationUrl) !== httpUrl(event.url) ? tickets.registrationUrl : null;
+      const pricePageUrl = tickets.pricingUrl ?? registrationPage;
+      if (!tickets.price && pricePageUrl) {
+        const pricing = await page(pricePageUrl);
+        if (pricing.error) {
+          return { event: { ...event, ...tickets, ticketCheckedAt: generatedAt }, check: {
+            name: `${event.name} pricing`, url: pricePageUrl, status: "unavailable", detail: pricing.error.message,
+          } };
+        }
+        const extra = ticketDetails(event, pricing.html, pricePageUrl, window.start);
+        tickets = {
+          ...tickets,
+          price: extra.price,
+          registrationUrl: tickets.registrationUrl ?? extra.registrationUrl,
+          registrationLabel: tickets.registrationUrl ? tickets.registrationLabel : extra.registrationLabel,
+        };
+      }
+      return { event: { ...event, ...tickets, ticketCheckedAt: generatedAt } };
+    } catch (error) {
+      return { event, check: { name: `${event.name} tickets`, url: event.url, status: "warning", detail: `Ticket details not verified: ${error.message}` } };
+    }
+  });
+  const events = ticketResults.map((result) => result.event);
+  checks.push(...ticketResults.map((result) => result.check).filter(Boolean));
   if (!events.length) throw new Error("No matching events found; refusing to replace the previous snapshot with an empty list");
   return {
     generatedAt,
@@ -148,6 +194,12 @@ export async function refresh({ root = ROOT, ...options } = {}) {
       if (event.end < event.start) throw new Error("Invalid conference cache date range");
       httpUrl(event.url);
       event.sources.forEach(httpUrl);
+      if (event.price) {
+        if (typeof event.price.label !== "string") throw new Error("Invalid cached ticket price");
+        httpUrl(event.price.url);
+      }
+      if (event.registrationUrl) httpUrl(event.registrationUrl);
+      if (event.pricingUrl) httpUrl(event.pricingUrl);
     }
     previousEvents = cache.events;
   }
