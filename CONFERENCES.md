@@ -1,8 +1,8 @@
 # US AI and infrastructure conferences
 
-Last refreshed: **2026-10-25T19:35:51.523Z**. Window: **2026-10-25 <= event start < 2027-10-25 (UTC)**; ongoing events are also included.
+Last refreshed: **2026-10-25T19:36:23.137Z**. Window: **2026-10-25 <= event start < 2027-10-25 (UTC)**; ongoing events are also included.
 
-**89 events** | **24 with current official date evidence** | **65 feed-only** | **0 retained from unavailable sources** | **83 source checks needing attention**
+**89 events** | **19 with current official date evidence** | **66 feed-only** | **4 retained from unavailable sources** | **93 source checks needing attention**
 
 Ticket coverage: **6 prices found** | **52 registration/application links found** (including any explicitly stale entries below).
 
@@ -24,9 +24,9 @@ Ticket prices are separately checked against official pages, not inferred from f
 
 | Dates | Conference / official site | US location | Topics | Price | Registration | Date evidence |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-10-25 - 2026-10-30 | [2026 Power Platform Community Conference](<https://powerplatformconf.com/>) | Las Vegas, NV | DevOps / SRE | Not found | [Register](<https://powerplatformconf.com/register/>) (stale; checked 2026-10-25T19:35:51.523Z) | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2026-10-26 - 2026-10-29 | [IBM TechXchange](<https://www.ibm.com/community/ibm-techxchange-conference/>) | Atlanta, GA | AI, Cloud / Kubernetes | [USD 1,599 (full conference pass)](<https://www.ibm.com/community/ibm-techxchange-conference/>) | [Register](<https://reg.tools.ibm.com/flow/ibm/techxchange26/reg>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2026-10-27 - 2026-10-29 | [ODSC AI West 2026](<https://odsc.ai/west/>) | Burlingame, CA | AI | Not found | [Register](<https://odsc.ai/west/register/>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
-| 2026-10-27 - 2026-10-29 | [Power Platform Community Conference 2026](<https://powerplatformconf.com/>) | Las Vegas, NV | DevOps / SRE | Not found | [Register](<https://powerplatformconf.com/register/>) | Official structured data; [source 1](<https://developers.events/all-events.json>), [source 2](<https://powerplatformconf.com/>) |
 | 2026-10-27 | [SEV0](<https://sev0.com/>) | San Francisco, CA | Cloud / Kubernetes, DevOps / SRE, Data infrastructure | Not found | Not found | Feed only; [source 1](<https://developers.events/all-events.json>), [source 2](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/data.json>), [source 3](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2026/sre.json>) |
 | 2026-10-27 - 2026-10-29 | [unprompted &#124; The AI Security Practitioner Conference (October 2026)](<https://unpromptedcon.org/>) | San Francisco, CA | AI | Not found | Not found | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2026-10-28 | [Meta @Scale: PRODUCT 2026](<https://atscaleconference.com/events/product-2026/>) | Menlo Park, CA | AI | Not found | [Register](<https://atscaleconference.com/events/product-2026/>) | Official page evidence; [source 1](<https://atscaleconference.com/>) |
@@ -77,11 +77,11 @@ Ticket prices are separately checked against official pages, not inferred from f
 | 2026-12-09 - 2026-12-13 | [NeurIPS Atlanta satellite 2026](<https://neurips.cc/>) | Atlanta, GA | AI | Not found; [check pricing](<https://neurips.cc/Conferences/2026/Pricing>) | [Register](<https://neurips.cc/Register/view-registration>) | Official page evidence; [source 1](<https://neurips.cc/>) |
 | 2026-12-11 | [KCD Florida](<https://community2.cncf.io/events/details/cncf-kcd-florida-presents-kcd-florida-2026-miami/>) | Miami, FL | Cloud / Kubernetes | Not found | Not found | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2027-02-03 - 2027-02-04 | [Daytona Compute](<https://compute.daytona.io/>) | San Francisco, CA | AI, Cloud / Kubernetes, Data infrastructure | Not found | [Register](<https://luma.com/daytona-compute>) | Feed only; [source 1](<https://developers.events/all-events.json>), [source 2](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json>) |
-| 2027-02-09 - 2027-02-11 | [AI DevWorld 2027](<https://www.developerweek.com/ai-devworld/>) | Santa Clara, CA | AI | Not found | [Register](<https://www.developerweek.com/register/>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
-| 2027-02-09 - 2027-02-11 | [OpsWorld 2027](<https://www.developerweek.com/ai-devworld/>) | Santa Clara, CA | DevOps / SRE | Not found | [Register](<https://www.developerweek.com/register/>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
-| 2027-02-09 - 2027-02-11 | [ProductWorld 2027](<https://www.developerweek.com/ai-devworld/>) | Santa Clara, CA | AI | Not found | [Register](<https://www.developerweek.com/register/>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
+| 2027-02-09 - 2027-02-11 | [AI DevWorld 2027](<https://www.developerweek.com/ai-devworld/>) | Santa Clara, CA | AI | Not found | [Register](<https://www.developerweek.com/register/>) (stale; checked 2026-10-25T19:35:51.523Z) | Feed only; [source 1](<https://developers.events/all-events.json>) |
+| 2027-02-09 - 2027-02-11 | [OpsWorld 2027](<https://www.developerweek.com/ai-devworld/>) | Santa Clara, CA | DevOps / SRE | Not found | [Register](<https://www.developerweek.com/register/>) (stale; checked 2026-10-25T19:35:51.523Z) | Feed only; [source 1](<https://developers.events/all-events.json>) |
+| 2027-02-09 - 2027-02-11 | [ProductWorld 2027](<https://www.developerweek.com/ai-devworld/>) | Santa Clara, CA | AI | Not found | [Register](<https://www.developerweek.com/register/>) (stale; checked 2026-10-25T19:35:51.523Z) | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2027-02-16 - 2027-02-18 | [Dynatrace Perform 2027](<https://www.dynatrace.com/perform/>) | Las Vegas, NV | Cloud / Kubernetes | Not found | [Register](<https://www.dynatrace.com/perform/#performReg>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
-| 2027-02-23 - 2027-02-25 | [FAST '27: 25th USENIX Conference on File and Storage Technologies](<https://www.usenix.org/conference/fast27>) | Renton, WA | Data infrastructure | Not found | Not found | Official page evidence; [source 1](<https://www.usenix.org/conferences>) |
+| 2027-02-23 - 2027-02-25 | [FAST '27: 25th USENIX Conference on File and Storage Technologies](<https://www.usenix.org/conference/fast27>) | Renton, WA | Data infrastructure | Not found | Not found | **Stale: source unavailable**; last verified 2026-10-25T19:35:51.523Z; [source 1](<https://www.usenix.org/conferences>) |
 | 2027-02-24 | [PlatformCon Live Day San Francisco](<https://sanfrancisco.platformcon.com/>) | San Francisco, CA | Cloud / Kubernetes, DevOps / SRE | Not found | [Register](<https://lu.ma/event/evt-J0XAVPbZXWQcpbL>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2027-03-08 - 2027-03-12 | [FABCON 2027 &amp; SQLCON 2027 - SESSIONS](<https://fabriccon.com/>) | Atlanta, GA | Cloud / Kubernetes, Data infrastructure | Not found | [Register](<https://fabriccon.com/tickets>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2027-03-08 - 2027-03-12 | [FABCON 2027 &amp; SQLCON 2027 - WORKSHOPS](<https://fabriccon.com/>) | Atlanta, GA | Cloud / Kubernetes, Data infrastructure | Not found | [Register](<https://fabriccon.com/tickets>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
@@ -92,7 +92,7 @@ Ticket prices are separately checked against official pages, not inferred from f
 | 2027-03-31 - 2027-04-01 | [Optimized AI Conference 2027](<https://www.oaiconference.com/>) | Atlanta, GA | AI | Not found | [Register](<https://www.oaiconference.com/registration>) | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2027-04-01 - 2027-04-04 | [SCaLE](<https://www.socallinuxexpo.org/scale/24x>) | Pasadena, CA | Cloud / Kubernetes | Not found | [Register](<https://register.socallinuxexpo.org/reg23>) | Feed only; [source 1](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/networking.json>) |
 | 2027-04-02 | [DevOpsDays Los Angeles 2027](<https://devopsdays.org/events/2027-los-angeles/welcome/>) | Los Angeles, CA | DevOps / SRE | Not found | Not found | Feed only; [source 1](<https://developers.events/all-events.json>) |
-| 2027-04-12 - 2027-04-14 | [SREcon27 Americas](<https://www.usenix.org/conference/srecon27americas>) | Seattle, WA | DevOps / SRE | Not found | Not found | Official page evidence; [source 1](<https://www.usenix.org/conferences>) |
+| 2027-04-12 - 2027-04-14 | [SREcon27 Americas](<https://www.usenix.org/conference/srecon27americas>) | Seattle, WA | DevOps / SRE | Not found | Not found | **Stale: source unavailable**; last verified 2026-10-25T19:35:51.523Z; [source 1](<https://www.usenix.org/conferences>) |
 | 2027-04-13 - 2027-04-15 | [Analytics and Data Summit 2027](<http://andouc.org/>) | Redwood Shores, CA | Data infrastructure | Not found | Not found | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2027-04-13 - 2027-04-15 | [Google Cloud Next 2027](<https://cloud.withgoogle.com/next>) | Las Vegas, NV | Cloud / Kubernetes, AI | Not found | Not found | Official page evidence; [source 1](<https://cloud.withgoogle.com/next>) |
 | 2027-04-20 - 2027-04-21 | [DevOpsDays Atlanta 2027](<https://devopsdays.org/events/2027-atlanta>) | Atlanta, GA | Cloud / Kubernetes, DevOps / SRE | Not found | Not found | Feed only; [source 1](<https://developers.events/all-events.json>) |
@@ -101,7 +101,7 @@ Ticket prices are separately checked against official pages, not inferred from f
 | 2027-04-28 - 2027-04-29 | [AGNTCon + MCPCon North America 2027](<https://events.linuxfoundation.org/agntcon-mcpcon-north-america-2027/>) | San Francisco, CA | Cloud / Kubernetes | Not found | Not found | Official structured data; [source 1](<https://developers.events/all-events.json>), [source 2](<https://events.linuxfoundation.org/agntcon-mcpcon-north-america-2027/>) |
 | 2027-04-30 - 2027-05-01 | [MinuteCon](<https://minutecon.org/>) | Boston, MA | Cloud / Kubernetes, DevOps / SRE | Not found | Not found | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2027-05-10 - 2027-05-12 | [ODSC East 2027](<https://odsc.ai/>) | Boston, MA | AI, Data infrastructure | Not found | [Register](<https://odsc.ai/west>) | Official page evidence; [source 1](<https://odsc.ai/>) |
-| 2027-05-11 - 2027-05-13 | [NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation](<https://www.usenix.org/conference/nsdi27>) | Providence, RI | Cloud / Kubernetes | Not found | Not found | Official page evidence; [source 1](<https://www.usenix.org/conferences>) |
+| 2027-05-11 - 2027-05-13 | [NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation](<https://www.usenix.org/conference/nsdi27>) | Providence, RI | Cloud / Kubernetes | Not found | Not found | **Stale: source unavailable**; last verified 2026-10-25T19:35:51.523Z; [source 1](<https://www.usenix.org/conferences>) |
 | 2027-05-20 - 2027-05-21 | [DevOpsDays Nashville 2027](<https://dodnashville.com/>) | Murfreesboro, TN | Cloud / Kubernetes, DevOps / SRE | Not found | Not found | Official structured data; [source 1](<https://developers.events/all-events.json>), [source 2](<https://dodnashville.com/>) |
 | 2027-05-24 - 2027-05-27 | [Data Center World](<https://datacenterworld.com/>) | Nashville, TN | AI infrastructure, Data infrastructure | Not found | Not found | Official structured data; [source 1](<https://datacenterworld.com/>) |
 | 2027-05-24 - 2027-05-28 | [DevOpsCon San Diego](<https://devopscon.io/san-diego>) | San Diego, CA | DevOps / SRE | Not found | [Register](<https://devopscon.io/amsterdam/tickets-amsterdam/>) | Feed only; [source 1](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/devops.json>), [source 2](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/sre.json>) |
@@ -110,7 +110,7 @@ Ticket prices are separately checked against official pages, not inferred from f
 | 2027-06-16 - 2027-06-17 | [Data Centre North America](<https://datacentrecongress.com/northamerica>) | San Jose, CA | AI infrastructure, Data infrastructure | Not found | [Register](<https://datacentrecongress.com/northamerica/registration/>) | Feed only; [source 1](<https://developers.events/all-events.json>), [source 2](<https://raw.githubusercontent.com/tech-conferences/conference-data/main/conferences/2027/data.json>) |
 | 2027-06-20 - 2027-06-25 | [CVPR 2027](<https://cvpr.thecvf.com/>) | Seattle, WA | AI | Not found | Not found | Official page evidence; [source 1](<https://cvpr.thecvf.com/>) |
 | 2027-06-29 - 2027-07-01 | [AI Engineer World's Fair 2027](<https://ai.engineer/>) | San Francisco, CA | AI | Not found | Not found | Official page evidence; [source 1](<https://ai.engineer/>) |
-| 2027-07-07 - 2027-07-09 | [OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation](<https://www.usenix.org/conference/osdi27>) | Baltimore, MD | Cloud / Kubernetes | Not found | Not found | Official page evidence; [source 1](<https://www.usenix.org/conferences>) |
+| 2027-07-07 - 2027-07-09 | [OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation](<https://www.usenix.org/conference/osdi27>) | Baltimore, MD | Cloud / Kubernetes | Not found | Not found | **Stale: source unavailable**; last verified 2026-10-25T19:35:51.523Z; [source 1](<https://www.usenix.org/conferences>) |
 | 2027-08-10 - 2027-08-11 | [Devopsdays Chicago](<https://devopsdays.org/events/2027-chicago>) | Chicago, IL | Cloud / Kubernetes, DevOps / SRE | Not found | Not found | Feed only; [source 1](<https://developers.events/all-events.json>) |
 | 2027-10-06 - 2027-10-07 | [PyTorch Conference 2027](<https://events.linuxfoundation.org/pytorch-conference-2027/>) | San Jose, CA | AI, AI infrastructure | Not found | Not found | Official structured data; [source 1](<https://developers.events/all-events.json>), [source 2](<https://events.linuxfoundation.org/pytorch-conference-2027/>) |
 
@@ -136,7 +136,7 @@ These recurring conferences are checked separately from the discovery feed. This
 | [AWS re:Invent](<https://aws.amazon.com/events/reinvent/>) | Cloud / Kubernetes, AI | 1 upcoming US event(s) with official evidence |
 | [Google Cloud Next](<https://cloud.withgoogle.com/next>) | Cloud / Kubernetes, AI | 1 upcoming US event(s) with official evidence |
 | [Microsoft Ignite](<https://ignite.microsoft.com/>) | Cloud / Kubernetes, AI | No supported upcoming US date evidence; not confirmation that dates are unannounced |
-| [USENIX systems conferences](<https://www.usenix.org/conferences>) | DevOps / SRE, Cloud / Kubernetes, Data infrastructure | 4 upcoming US event(s) with official evidence |
+| [USENIX systems conferences](<https://www.usenix.org/conferences>) | DevOps / SRE, Cloud / Kubernetes, Data infrastructure | HTTP 403 for https://www.usenix.org/conferences |
 | [DevOpsDays](<https://devopsdays.org/events/>) | DevOps / SRE | No supported upcoming US date evidence; not confirmation that dates are unannounced |
 | [PlatformCon](<https://platformcon.com/>) | DevOps / SRE | No supported upcoming US date evidence; not confirmation that dates are unannounced |
 | [Data + AI Summit](<https://www.databricks.com/dataaisummit>) | AI, Data infrastructure | No supported upcoming US date evidence; not confirmation that dates are unannounced |
@@ -193,7 +193,7 @@ Discovery failures stop the refresh before replacing this file. Official-page fa
 | [AWS re:Invent](<https://aws.amazon.com/events/reinvent/>) | ok | 1 upcoming US event(s) with official evidence |
 | [Google Cloud Next](<https://cloud.withgoogle.com/next>) | ok | 1 upcoming US event(s) with official evidence |
 | [Microsoft Ignite](<https://ignite.microsoft.com/>) | limited | No supported upcoming US date evidence; not confirmation that dates are unannounced |
-| [USENIX systems conferences](<https://www.usenix.org/conferences>) | ok | 4 upcoming US event(s) with official evidence |
+| [USENIX systems conferences](<https://www.usenix.org/conferences>) | unavailable | HTTP 403 for https://www.usenix.org/conferences |
 | [DevOpsDays](<https://devopsdays.org/events/>) | limited | No supported upcoming US date evidence; not confirmation that dates are unannounced |
 | [PlatformCon](<https://platformcon.com/>) | limited | No supported upcoming US date evidence; not confirmation that dates are unannounced |
 | [Data + AI Summit](<https://www.databricks.com/dataaisummit>) | limited | No supported upcoming US date evidence; not confirmation that dates are unannounced |
@@ -205,7 +205,7 @@ Discovery failures stop the refresh before replacing this file. Official-page fa
 | [Data Center World](<https://datacenterworld.com/>) | ok | 1 upcoming US event(s) with official evidence |
 | [HashiConf](<https://www.hashicorp.com/conferences/hashiconf>) | unavailable | HTTP 429 for https://www.hashicorp.com/conferences/hashiconf |
 | [Open Source Summit North America](<https://events.linuxfoundation.org/open-source-summit-north-america/>) | limited | No supported upcoming US date evidence; not confirmation that dates are unannounced |
-| [2026 Power Platform Community Conference](<https://powerplatformconf.com/>) | ok | Official event dates and US venue checked |
+| [2026 Power Platform Community Conference](<https://powerplatformconf.com/>) | unavailable | HTTP 403 for https://powerplatformconf.com/ |
 | [IBM TechXchange](<https://www.ibm.com/community/ibm-techxchange-conference/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
 | [KubeCon + CloudNativeCon North America](<https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america-2026>) | ok | Official event dates and US venue checked |
 | [ODSC AI West 2026](<https://odsc.ai/west/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
@@ -255,9 +255,9 @@ Discovery failures stop the refresh before replacing this file. Official-page fa
 | [The AI Summit New York 2026](<https://newyork.theaisummit.com/>) | ok | Official event dates and US venue checked |
 | [KCD Florida](<https://community2.cncf.io/events/details/cncf-kcd-florida-presents-kcd-florida-2026-miami/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
 | [Daytona Compute](<https://compute.daytona.io/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
-| [AI DevWorld 2027](<https://www.developerweek.com/ai-devworld/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
-| [OpsWorld 2027](<https://www.developerweek.com/ai-devworld/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
-| [ProductWorld 2027](<https://www.developerweek.com/ai-devworld/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
+| [AI DevWorld 2027](<https://www.developerweek.com/ai-devworld/>) | unavailable | HTTP 403 for https://www.developerweek.com/ai-devworld/ |
+| [OpsWorld 2027](<https://www.developerweek.com/ai-devworld/>) | unavailable | HTTP 403 for https://www.developerweek.com/ai-devworld/ |
+| [ProductWorld 2027](<https://www.developerweek.com/ai-devworld/>) | unavailable | HTTP 403 for https://www.developerweek.com/ai-devworld/ |
 | [Dynatrace Perform 2027](<https://www.dynatrace.com/perform/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
 | [PlatformCon Live Day San Francisco](<https://sanfrancisco.platformcon.com/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
 | [FABCON 2027 &amp; SQLCON 2027 - SESSIONS](<https://fabriccon.com/>) | limited | No unambiguous matching official Event data; dates remain feed-only |
@@ -281,6 +281,14 @@ Discovery failures stop the refresh before replacing this file. Official-page fa
 | [Data Centre North America](<https://datacentrecongress.com/northamerica>) | limited | No unambiguous matching official Event data; dates remain feed-only |
 | [Devopsdays Chicago](<https://devopsdays.org/events/2027-chicago>) | limited | No unambiguous matching official Event data; dates remain feed-only |
 | [PyTorch Conference 2027](<https://events.linuxfoundation.org/pytorch-conference-2027/>) | ok | Official event dates and US venue checked |
+| [FAST '27: 25th USENIX Conference on File and Storage Technologies](<https://www.usenix.org/conference/fast27>) | stale | Retained from unavailable official source; last verified 2026-10-25T19:35:51.523Z |
+| [SREcon27 Americas](<https://www.usenix.org/conference/srecon27americas>) | stale | Retained from unavailable official source; last verified 2026-10-25T19:35:51.523Z |
+| [NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation](<https://www.usenix.org/conference/nsdi27>) | stale | Retained from unavailable official source; last verified 2026-10-25T19:35:51.523Z |
+| [OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation](<https://www.usenix.org/conference/osdi27>) | stale | Retained from unavailable official source; last verified 2026-10-25T19:35:51.523Z |
+| [2026 Power Platform Community Conference tickets](<https://powerplatformconf.com/>) | stale | Official ticket page unavailable; retained details checked 2026-10-25T19:35:51.523Z |
+| [AI DevWorld 2027 tickets](<https://www.developerweek.com/ai-devworld/>) | stale | Official ticket page unavailable; retained details checked 2026-10-25T19:35:51.523Z |
+| [OpsWorld 2027 tickets](<https://www.developerweek.com/ai-devworld/>) | stale | Official ticket page unavailable; retained details checked 2026-10-25T19:35:51.523Z |
+| [ProductWorld 2027 tickets](<https://www.developerweek.com/ai-devworld/>) | stale | Official ticket page unavailable; retained details checked 2026-10-25T19:35:51.523Z |
 
 </details>
 
