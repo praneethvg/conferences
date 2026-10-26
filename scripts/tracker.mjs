@@ -279,10 +279,65 @@ function metaScaleEvents(html, source) {
   return events;
 }
 
+const US_REGIONS = new Map([
+  ["AL", "Alabama"], ["AK", "Alaska"], ["AZ", "Arizona"], ["AR", "Arkansas"], ["CA", "California"],
+  ["CO", "Colorado"], ["CT", "Connecticut"], ["DE", "Delaware"], ["DC", "District of Columbia"],
+  ["FL", "Florida"], ["GA", "Georgia"], ["HI", "Hawaii"], ["ID", "Idaho"], ["IL", "Illinois"],
+  ["IN", "Indiana"], ["IA", "Iowa"], ["KS", "Kansas"], ["KY", "Kentucky"], ["LA", "Louisiana"],
+  ["ME", "Maine"], ["MD", "Maryland"], ["MA", "Massachusetts"], ["MI", "Michigan"], ["MN", "Minnesota"],
+  ["MS", "Mississippi"], ["MO", "Missouri"], ["MT", "Montana"], ["NE", "Nebraska"], ["NV", "Nevada"],
+  ["NH", "New Hampshire"], ["NJ", "New Jersey"], ["NM", "New Mexico"], ["NY", "New York"],
+  ["NC", "North Carolina"], ["ND", "North Dakota"], ["OH", "Ohio"], ["OK", "Oklahoma"], ["OR", "Oregon"],
+  ["PA", "Pennsylvania"], ["RI", "Rhode Island"], ["SC", "South Carolina"], ["SD", "South Dakota"],
+  ["TN", "Tennessee"], ["TX", "Texas"], ["UT", "Utah"], ["VT", "Vermont"], ["VA", "Virginia"],
+  ["WA", "Washington"], ["WV", "West Virginia"], ["WI", "Wisconsin"], ["WY", "Wyoming"],
+].flatMap(([code, name]) => [[code.toLowerCase(), code], [name.toLowerCase(), code]]));
+
+function ocpCalendarEvents(html, source) {
+  const clean = html.replace(/<!--[\s\S]*?-->/g, " ").replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, " ");
+  const cards = [...clean.matchAll(/<li\b[^>]*class=["'][^"']*\bocp-content-card--event\b[^"']*["'][^>]*>([\s\S]*?)<\/li>/gi)];
+  if (!cards.length) throw new Error("OCP calendar event cards are missing or their markup changed");
+  const events = [];
+  for (const card of cards) {
+    const body = card[1];
+    if (!/\bclass=["'][^"']*\bocp-content-card__tag--ocp\b[^"']*["']/i.test(body)) continue;
+    const field = (name) => {
+      const match = body.match(new RegExp(`<dt\\b[^>]*>\\s*${name}:\\s*<\\/dt>\\s*<dd\\b[^>]*>([\\s\\S]*?)<\\/dd>`, "i"));
+      return match ? visibleText(match[1]) : "";
+    };
+    const location = field("Location");
+    if (!location || /\b(?:online|virtual)\b/i.test(location)) continue;
+    const parts = location.split(",").map((part) => part.trim());
+    const country = parts.at(-1);
+    if (isUS(country)) parts.pop();
+    const region = US_REGIONS.get(parts.at(-1)?.toLowerCase());
+    if (!region) {
+      if (isUS(country)) throw new Error(`OCP calendar: unsupported US venue: ${location}`);
+      continue;
+    }
+    const city = parts.at(-2);
+    if (!city) throw new Error(`OCP calendar: missing US city: ${location}`);
+    const dates = field("Date");
+    const range = dates.match(/^(?<month>[A-Za-z]+)\.?\s+(?<start>\d{1,2})(?:\s*-\s*(?:(?<endMonth>[A-Za-z]+)\.?\s+)?(?<end>\d{1,2}))?,\s*(?<year>20\d{2})$/);
+    if (!range) throw new Error(`OCP calendar: unsupported date: ${dates}`);
+    const heading = body.match(/<h[1-6]\b[^>]*class=["'][^"']*\bocp-content-card__heading\b[^"']*["'][^>]*>([\s\S]*?)<\/h[1-6]>/i);
+    const anchor = heading?.[1].match(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/i);
+    if (!anchor || !visibleText(anchor[2])) throw new Error("OCP calendar: event title or link is missing");
+    const url = new URL(decodeEntities(anchor[1]), source.url);
+    if (url.origin !== new URL(source.url).origin || !url.pathname.startsWith("/events/")) {
+      throw new Error(`OCP calendar: unsupported event URL: ${url.href}`);
+    }
+    const groups = { ...range.groups, end: range.groups.end ?? range.groups.start };
+    events.push(announcement(source, visibleText(anchor[2]), groups, `${city}, ${region}`, source.topics, url.href));
+  }
+  return events;
+}
+
 export function textEvents(html, source) {
   if (!source.textAdapter) return [];
   if (source.textAdapter === "usenix") return usenixEvents(html, source);
   if (source.textAdapter === "meta-atscale") return metaScaleEvents(html, source);
+  if (source.textAdapter === "ocp-calendar") return ocpCalendarEvents(html, source);
   const text = visibleText(html);
   if (source.textAdapter === "odsc") {
     return [...text.matchAll(/\b(?<city>BOSTON|NEW YORK) (?<month>[A-Z]+) (?<start>\d{1,2})-(?<end>\d{1,2}), (?<year>20\d{2})\b/gi)]

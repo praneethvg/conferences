@@ -169,10 +169,11 @@
       "names": ["Hot Chips"]
     },
     {
-      "name": "OCP Global Summit",
-      "url": "https://www.opencompute.org/events/ocp-summit/2026-ocp-global-summit/",
+      "name": "Open Compute Project events",
+      "url": "https://www.opencompute.org/events/",
       "topics": ["AI infrastructure"],
-      "names": ["OCP Global Summit", "Open Compute Project"]
+      "names": ["OCP", "Open Compute Project", "Digital Infrastructure World"],
+      "textAdapter": "ocp-calendar"
     },
     {
       "name": "Data Center World",

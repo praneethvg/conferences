@@ -293,6 +293,83 @@ test("Meta @Scale cannot invent dates or US venues from unrelated or unsupported
   assert.equal(textEvents(metaCard("PRODUCT", "October 28, 2026", "Virtual", "AI"), source).length, 0);
 });
 
+const ocpSource = {
+  name: "Open Compute Project events", url: "https://www.opencompute.org/events/",
+  topics: ["AI infrastructure"], names: ["OCP"], textAdapter: "ocp-calendar",
+};
+
+function ocpCard({
+  name = "2027 OCP Global Summit", date = "October 4&ndash;7, 2027", location = "San Francisco, CA",
+  url = "/events/ocp-summit/2027-ocp-global-summit/", host = "ocp",
+} = {}) {
+  return `<li class="ocp-content-card ocp-content-card--event is-entire-card-clickable">
+    <div><span class="ocp-content-card__tag ocp-content-card__tag--${host}">OCP event</span></div>
+    <div><h4 class="ocp-content-card__heading ocp-reveal"><a href="${url}">${name}</a></h4>
+    <div>Summary with unrelated dates and locations is not metadata.</div></div>
+    <dl><div><dt class="ocp-content-card__meta-label">Date:</dt><dd><span>${date}</span></dd></div>
+    ${location === null ? "" : `<div><dt>Location:</dt><dd><span>${location}</span></dd></div>`}</dl>
+  </li>`;
+}
+
+test("OCP calendar discovers the current global summit and other hosted US infrastructure events", () => {
+  const html = '<nav><a href="/events/ocp-summit/2026-ocp-global-summit/">2026 OCP Global Summit</a></nav>'
+    + ocpCard()
+    + ocpCard({ name: "Digital Infrastructure World", date: "February 3–4, 2027", location: "San Jose, California", url: "/events/ocp-tech-day/digital-infrastructure-world/" })
+    + ocpCard({ name: "Future OCP Summit", date: "September 25-28, 2028", location: "Seattle, Washington", url: "/events/ocp-summit/future-summit/" });
+  const parsed = textEvents(html, ocpSource);
+  assert.equal(parsed.length, 3);
+  assert.deepEqual(parsed[0], {
+    name: "2027 OCP Global Summit", start: "2027-10-04", end: "2027-10-07",
+    city: "San Francisco, CA", country: "US", topics: ["AI infrastructure"],
+    url: "https://www.opencompute.org/events/ocp-summit/2027-ocp-global-summit/",
+    evidence: "Official page evidence", sources: [ocpSource.url],
+  });
+  assert.equal(parsed[1].city, "San Jose, CA");
+  assert.equal(parsed[2].city, "Seattle, WA");
+  assert.equal(parsed.filter((entry) => inWindow(entry, windowFor("2026-10-26"))).length, 2);
+});
+
+test("OCP calendar excludes non-US editions, virtual events and third-party appearances", () => {
+  const parsed = textEvents(
+    ocpCard({ name: "OCP EMEA Summit", location: "Hamburg, Germany" })
+    + ocpCard({ name: "OCP APAC Summit", location: "Taipei, Taiwan" })
+    + ocpCard({ name: "OCP Canada Tech Day", location: "Toronto, Canada" })
+    + ocpCard({ name: "Educational Webinar", location: null })
+    + ocpCard({ name: "Virtual Summit", location: "Online" })
+    + ocpCard({ name: "OCP at SC26", location: "Chicago, IL", host: "third-party" }),
+    ocpSource,
+  );
+  assert.deepEqual(parsed, []);
+});
+
+test("OCP date parsing handles single-day and cross-month events without rolling years forward", () => {
+  const parsed = textEvents(
+    ocpCard({ date: "October 4, 2027", location: "Washington, DC, United States" })
+    + ocpCard({ date: "September 30–October 3, 2027" })
+    + ocpCard({ name: "2026 OCP Global Summit", date: "October 12-15, 2026" }),
+    ocpSource,
+  );
+  assert.equal(parsed[0].start, "2027-10-04");
+  assert.equal(parsed[0].end, "2027-10-04");
+  assert.equal(parsed[0].city, "Washington, DC");
+  assert.equal(parsed[1].end, "2027-10-03");
+  assert.equal(parsed[2].start, "2026-10-12");
+  assert.equal(inWindow(parsed[2], windowFor("2026-10-26")), false);
+});
+
+test("OCP markup drift, invalid dates and unsafe event links are reported instead of guessed", () => {
+  for (const html of [
+    "<p>2027 OCP Global Summit October 4-7 San Francisco, CA</p>",
+    `<script>${ocpCard()}</script>`,
+    `<!--${ocpCard()}-->`,
+    ocpCard({ date: "Dates TBD" }),
+    ocpCard({ date: "February 30, 2027" }),
+    ocpCard({ location: "California" }),
+    ocpCard({ location: "San Francisco, United States" }),
+    ocpCard({ url: "https://unrelated.example/events/" }),
+  ]) assert.throws(() => textEvents(html, ocpSource));
+});
+
 test("name normalization merges year and North America abbreviations", () => {
   assert.equal(normalizedName("KubeCon + CloudNativeCon NA 2026"), normalizedName("KubeCon CloudNativeCon North America"));
   assert.equal(namesMatch("NVIDIA GTC 2027", ["GTC"]), true);
@@ -446,6 +523,28 @@ test("end-to-end collection discovers, verifies, deduplicates, and sorts rolling
   assert.equal(fixture.calls.get("https://events.example/ai"), 1);
   assert.equal(fixture.calls.has("https://feeds.example/conferences/2026/android.json"), false);
   assert.deepEqual(snapshot.window, { start: "2026-10-17", end: "2027-10-17" });
+});
+
+test("collection includes OCP Global Summit from the ongoing official calendar with dated evidence", async () => {
+  const fixture = fixtures({
+    [ocpSource.url]: ocpCard(),
+    "https://www.opencompute.org/events/ocp-summit/2027-ocp-global-summit/": "<p>2027 OCP Global Summit</p>",
+  });
+  const snapshot = await collect({ ...config, official: [...config.official, ocpSource] }, {
+    ...options, getText: fixture.getText,
+  });
+  const summit = snapshot.events.find((entry) => entry.name === "2027 OCP Global Summit");
+  assert.ok(summit);
+  assert.equal(summit.start, "2027-10-04");
+  assert.equal(summit.end, "2027-10-07");
+  assert.equal(summit.evidence, "Official page evidence");
+  assert.ok(snapshot.checks.some((check) => check.url === ocpSource.url && check.status === "ok"));
+  assert.match(renderMarkdown(snapshot), /\| 2027-10-04 - 2027-10-07 \| \[2027 OCP Global Summit\]/);
+  const unsupported = fixtures({ [ocpSource.url]: "<p>New calendar markup</p>" });
+  const withWarning = await collect({ ...config, official: [...config.official, ocpSource] }, {
+    ...options, getText: unsupported.getText,
+  });
+  assert.ok(withWarning.checks.some((check) => check.url === ocpSource.url && check.status === "warning"));
 });
 
 test("collection unions both feeds and official sources, retaining each source URL", async () => {
