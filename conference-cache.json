@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-25T19:36:23.137Z",
+  "generatedAt": "2026-10-26T19:21:33.900Z",
   "events": [
     {
       "name": "2026 Power Platform Community Conference",
@@ -49,7 +49,7 @@
       "registrationUrl": "https://reg.tools.ibm.com/flow/ibm/techxchange26/reg",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "ODSC AI West 2026",
@@ -68,10 +68,10 @@
       "stale": false,
       "lastVerifiedAt": null,
       "price": null,
-      "registrationUrl": "https://odsc.ai/west/register/",
+      "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "SEV0",
@@ -101,7 +101,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "unprompted | The AI Security Practitioner Conference (October 2026)",
@@ -123,7 +123,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Meta @Scale: PRODUCT 2026",
@@ -140,12 +140,12 @@
         "https://atscaleconference.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": "https://atscaleconference.com/events/product-2026/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Women in Statistics and Data Science Conference 2026",
@@ -168,7 +168,7 @@
       "registrationUrl": "https://ww2.amstat.org/meetings/wsds/2026/registration.cfm",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Agentic AI Summit Boston",
@@ -190,7 +190,7 @@
       "registrationUrl": "https://world.aiacceleratorinstitute.com/location/agenticaiboston/register",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Web AI Summit",
@@ -212,7 +212,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AI DevCon NYC",
@@ -247,7 +247,7 @@
       "registrationUrl": "https://tessl.io/devcon#tickets",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Applied AI 2026 Fall Conference",
@@ -269,7 +269,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Microsoft TechCon 365 Dallas 2026",
@@ -314,7 +314,7 @@
       "registrationUrl": "https://luma.com/eis7567t",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Humanoid Robots Summit North America 2026",
@@ -336,7 +336,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Elastic{ON}",
@@ -358,7 +358,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Voice Agents Forum",
@@ -376,7 +376,7 @@
         "https://luma.com/voiceagentssf"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": {
         "label": "USD 300 (listed offers; types vary)",
         "url": "https://luma.com/voiceagentssf"
@@ -384,7 +384,7 @@
       "registrationUrl": "https://luma.com/voiceagentssf",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "PNW Day of Data 2026",
@@ -406,7 +406,7 @@
       "registrationUrl": "https://www.zeffy.com/en-US/ticketing/pnw-day-of-data--2026",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "DevFest KC 2026",
@@ -428,7 +428,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "7th Annual National HBCU Blockchain, FinTech & AI Conference",
@@ -450,7 +450,7 @@
       "registrationUrl": "https://fintech.morgan.edu/conference-2026/conference/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Maintainer Summit: KubeCon + CloudNativeCon North America 2026",
@@ -472,7 +472,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Agentics Day: MCP + Agents North America",
@@ -494,7 +494,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "ArgoCon North America",
@@ -516,7 +516,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "BackstageCon North America",
@@ -538,7 +538,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "CiliumCon North America",
@@ -560,7 +560,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Cloud Native AI & Inference Day North America",
@@ -584,7 +584,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Distributed SQL Summit 2026",
@@ -606,7 +606,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "FluxCon North America",
@@ -628,7 +628,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "KubeAuto Day North America",
@@ -650,7 +650,7 @@
       "registrationUrl": "https://kubeauto.day/north-america#register",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "KubeCon + CloudNativeCon North America",
@@ -677,7 +677,7 @@
       "locationConflict": false,
       "alternateCities": [],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": {
         "label": "USD 1,899 conference-only; USD 2,278 all-access (corporate; tax extra)",
         "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/"
@@ -685,7 +685,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Kubernetes on Edge Day North America",
@@ -707,7 +707,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "LearnKube Day: Salt Lake City 2026",
@@ -730,7 +730,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Observability Day North America",
@@ -753,7 +753,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Platform Engineering Day North America",
@@ -776,7 +776,7 @@
       "registrationUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AI Engineer Code Summit 2026",
@@ -798,7 +798,7 @@
       "locationConflict": false,
       "alternateCities": [],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": {
         "label": "$1,299 regular (application approval; fees extra; currency as published)",
         "url": "https://ai.engineer/code"
@@ -806,7 +806,7 @@
       "registrationUrl": "https://ai.engineer/code#access",
       "registrationLabel": "Apply to attend",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "BADCamp 2026",
@@ -828,7 +828,7 @@
       "registrationUrl": "https://badcamp.org/event-registration",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Seattle Day of Data 2026",
@@ -851,7 +851,7 @@
       "registrationUrl": "https://www.eventbrite.com/e/day-of-data-seattle-2026-pg-edition-tickets-2003212567715",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "International Conference on the Social Impact of AI (SIAI 2026)",
@@ -873,7 +873,7 @@
       "registrationUrl": "https://www.siai.co/registration",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "DevFest × SunHacks ASU 2026",
@@ -896,7 +896,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "M365 Community Days Atlanta 2026",
@@ -918,7 +918,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AI Coding Summit New York Edition",
@@ -937,10 +937,10 @@
       "stale": false,
       "lastVerifiedAt": null,
       "price": null,
-      "registrationUrl": "https://aicodingsummit.com/nyc#tickets",
+      "registrationUrl": "https://aicodingsummit.com/nyc/#tickets",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "KubeAuto Day Las Vegas",
@@ -962,7 +962,7 @@
       "registrationUrl": "https://kubeauto.day/las-vegas#register",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AI Dev NYC 2026",
@@ -984,7 +984,7 @@
       "registrationUrl": "https://ai-dev.deeplearning.ai/#tickets",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AWS re:Invent 2026",
@@ -1002,7 +1002,7 @@
         "https://aws.amazon.com/events/reinvent/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": {
         "label": "USD 2,499 (full pass)",
         "url": "https://aws.amazon.com/events/reinvent/pricing/"
@@ -1010,30 +1010,7 @@
       "registrationUrl": "https://registration.awsevents.com/flow/awsevents/reinvent2026/reg",
       "registrationLabel": "Register",
       "pricingUrl": "https://aws.amazon.com/events/reinvent/pricing/",
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
-    },
-    {
-      "name": "ODSC AI NYC 2026",
-      "start": "2026-12-02",
-      "end": "2026-12-03",
-      "city": "New York, NY",
-      "country": "US",
-      "url": "https://odsc.ai/",
-      "topics": [
-        "AI",
-        "Data infrastructure"
-      ],
-      "evidence": "Official page evidence",
-      "sources": [
-        "https://odsc.ai/"
-      ],
-      "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
-      "price": null,
-      "registrationUrl": "https://odsc.ai/west",
-      "registrationLabel": "Register",
-      "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "ODSC AI NYC 2026: AI for Work Summit",
@@ -1055,7 +1032,7 @@
       "registrationUrl": "https://summit.ai/#passes",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Day of Data and AI - Houston",
@@ -1078,7 +1055,7 @@
       "registrationUrl": "https://www.eventbrite.com/e/day-of-data-and-ai-houston-tickets-1992652825241?aff=oddtdtcreator",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Colorado Applied Machine Learning Mini Conference 2026",
@@ -1096,12 +1073,7 @@
         "https://developers.events/all-events.json"
       ],
       "stale": false,
-      "lastVerifiedAt": null,
-      "price": null,
-      "registrationUrl": null,
-      "registrationLabel": "Register",
-      "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "lastVerifiedAt": null
     },
     {
       "name": "DistrictCon",
@@ -1123,7 +1095,7 @@
       "registrationUrl": "https://www.districtcon.org/tickets",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "The AI Summit New York",
@@ -1141,12 +1113,12 @@
         "https://newyork.theaisummit.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AI Infra Summit 6",
@@ -1165,12 +1137,12 @@
         "https://aiinfra.live/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": "https://luma.com/aiinfra6",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "NeurIPS Atlanta satellite 2026",
@@ -1187,12 +1159,12 @@
         "https://neurips.cc/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": "https://neurips.cc/Register/view-registration",
       "registrationLabel": "Register",
       "pricingUrl": "https://neurips.cc/Conferences/2026/Pricing",
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "KCD Florida",
@@ -1214,7 +1186,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Daytona Compute",
@@ -1243,7 +1215,7 @@
       "registrationUrl": "https://luma.com/daytona-compute",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AI DevWorld 2027",
@@ -1334,7 +1306,7 @@
       "registrationUrl": "https://www.dynatrace.com/perform/#performReg",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "FAST '27: 25th USENIX Conference on File and Storage Technologies",
@@ -1379,7 +1351,7 @@
       "registrationUrl": "https://lu.ma/event/evt-J0XAVPbZXWQcpbL",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "FABCON 2027 & SQLCON 2027 - SESSIONS",
@@ -1402,7 +1374,7 @@
       "registrationUrl": "https://fabriccon.com/tickets",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "FABCON 2027 & SQLCON 2027 - WORKSHOPS",
@@ -1425,7 +1397,7 @@
       "registrationUrl": "https://fabriccon.com/tickets",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "NVIDIA GTC 2027",
@@ -1443,12 +1415,12 @@
         "https://www.nvidia.com/gtc/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AI Context New York 2027",
@@ -1466,12 +1438,12 @@
         "https://www.aicontextseries.com/new-york"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Day of Data - Richmond 2027",
@@ -1493,7 +1465,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "CypherCon 10 (2027)",
@@ -1512,10 +1484,10 @@
       "stale": false,
       "lastVerifiedAt": null,
       "price": null,
-      "registrationUrl": "https://register.cyphercon.com/",
+      "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Optimized AI Conference 2027",
@@ -1537,7 +1509,7 @@
       "registrationUrl": "https://www.oaiconference.com/registration",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "SCaLE",
@@ -1559,7 +1531,7 @@
       "registrationUrl": "https://register.socallinuxexpo.org/reg23",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "DevOpsDays Los Angeles 2027",
@@ -1581,7 +1553,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "SREcon27 Americas",
@@ -1625,30 +1597,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
-    },
-    {
-      "name": "Google Cloud Next 2027",
-      "start": "2027-04-13",
-      "end": "2027-04-15",
-      "city": "Las Vegas, NV",
-      "country": "US",
-      "url": "https://cloud.withgoogle.com/next",
-      "topics": [
-        "Cloud / Kubernetes",
-        "AI"
-      ],
-      "evidence": "Official page evidence",
-      "sources": [
-        "https://cloud.withgoogle.com/next"
-      ],
-      "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
-      "price": null,
-      "registrationUrl": null,
-      "registrationLabel": "Register",
-      "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "DevOpsDays Atlanta 2027",
@@ -1671,7 +1620,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "DevOpsDays Raleigh 2027",
@@ -1694,7 +1643,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "GrafanaCON 2027",
@@ -1716,7 +1665,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AGNTCon + MCPCon North America 2027",
@@ -1734,12 +1683,12 @@
         "https://events.linuxfoundation.org/agntcon-mcpcon-north-america-2027/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "MinuteCon",
@@ -1762,30 +1711,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
-    },
-    {
-      "name": "ODSC East 2027",
-      "start": "2027-05-10",
-      "end": "2027-05-12",
-      "city": "Boston, MA",
-      "country": "US",
-      "url": "https://odsc.ai/",
-      "topics": [
-        "AI",
-        "Data infrastructure"
-      ],
-      "evidence": "Official page evidence",
-      "sources": [
-        "https://odsc.ai/"
-      ],
-      "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
-      "price": null,
-      "registrationUrl": "https://odsc.ai/west",
-      "registrationLabel": "Register",
-      "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "NSDI '27: 24th USENIX Symposium on Networked Systems Design and Implementation",
@@ -1826,12 +1752,12 @@
         "https://dodnashville.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Data Center World",
@@ -1849,12 +1775,12 @@
         "https://datacenterworld.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "DevOpsCon San Diego",
@@ -1881,7 +1807,7 @@
       "registrationUrl": "https://devopscon.io/amsterdam/tickets-amsterdam/",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AI Con USA",
@@ -1928,7 +1854,7 @@
       "registrationUrl": "https://www.eventzilla.net/e/pg-data-2026-2138653735",
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "Data Centre North America",
@@ -1953,10 +1879,10 @@
       "stale": false,
       "lastVerifiedAt": null,
       "price": null,
-      "registrationUrl": "https://datacentrecongress.com/northamerica/registration/",
+      "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "CVPR 2027",
@@ -1973,12 +1899,12 @@
         "https://cvpr.thecvf.com/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "AI Engineer World's Fair 2027",
@@ -1995,12 +1921,12 @@
         "https://ai.engineer/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "OSDI '27: 21st USENIX Symposium on Operating Systems Design and Implementation",
@@ -2045,7 +1971,7 @@
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     },
     {
       "name": "PyTorch Conference 2027",
@@ -2064,12 +1990,12 @@
         "https://events.linuxfoundation.org/pytorch-conference-2027/"
       ],
       "stale": false,
-      "lastVerifiedAt": "2026-10-25T19:36:23.137Z",
+      "lastVerifiedAt": "2026-10-26T19:21:33.900Z",
       "price": null,
       "registrationUrl": null,
       "registrationLabel": "Register",
       "pricingUrl": null,
-      "ticketCheckedAt": "2026-10-25T19:36:23.137Z"
+      "ticketCheckedAt": "2026-10-26T19:21:33.900Z"
     }
   ]
 }
